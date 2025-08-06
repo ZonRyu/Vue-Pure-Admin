@@ -52,10 +52,10 @@ watch(
       currentRoute.name === "Redirect" &&
       path.includes(props.frameInfo?.fullPath)
     ) {
-      frameSrc.value = path; // redirect时，置换成任意值，待重定向后 重新赋值
+      frameSrc.value = path; // When redirecting, replace it with any value and reassign it after redirection
       loading.value = true;
     }
-    // 重新赋值
+    // Reassign
     if (props.frameInfo?.fullPath === path) {
       frameSrc.value = props.frameInfo?.frameSrc;
     }

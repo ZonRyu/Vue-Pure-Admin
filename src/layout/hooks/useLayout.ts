@@ -8,19 +8,19 @@ export function useLayout() {
   const { $storage, $config } = useGlobal<GlobalPropertiesApi>();
 
   const initStorage = () => {
-    /** 路由 */
+    /** Routing */
     if (
       useMultiTagsStore().multiTagsCache &&
       (!$storage.tags || $storage.tags.length === 0)
     ) {
       $storage.tags = routerArrays;
     }
-    /** 国际化 */
+    /** Internationalization */
     if (!$storage.locale) {
       $storage.locale = { locale: $config?.Locale ?? "zh" };
       useI18n().locale.value = $config?.Locale ?? "zh";
     }
-    /** 导航 */
+    /** Navigation */
     if (!$storage.layout) {
       $storage.layout = {
         layout: $config?.Layout ?? "vertical",
@@ -32,7 +32,7 @@ export function useLayout() {
         overallStyle: $config?.OverallStyle ?? "light"
       };
     }
-    /** 灰色模式、色弱模式、隐藏标签页 */
+    /** Gray mode, color-blind mode, hidden tabs */
     if (!$storage.configure) {
       $storage.configure = {
         grey: $config?.Grey ?? false,
@@ -47,7 +47,7 @@ export function useLayout() {
     }
   };
 
-  /** 清空缓存后从platform-config.json读取默认配置并赋值到storage中 */
+  /** After clearing the cache, read the default configuration from platform-config.json and assign it to storage */
   const layout = computed(() => {
     return $storage?.layout.layout;
   });

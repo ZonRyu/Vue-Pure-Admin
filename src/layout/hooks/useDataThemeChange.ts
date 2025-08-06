@@ -15,19 +15,19 @@ export function useDataThemeChange() {
   const themeColors = ref<Array<themeColorsType>>([
     /* Bright white */
     { color: "#ffffff", themeColor: "light" },
-    /* 道奇蓝 */
+    /* Dodge blue */
     { color: "#1b2a47", themeColor: "default" },
-    /* 深紫罗兰色 */
+    /* Deep violet */
     { color: "#722ed1", themeColor: "saucePurple" },
-    /* 深粉色 */
+    /* Dark pink */
     { color: "#eb2f96", themeColor: "pink" },
-    /* 猩红色 */
+    /* Scarlet */
     { color: "#f5222d", themeColor: "dusk" },
-    /* 橙红色 */
+    /* Orange red */
     { color: "#fa541c", themeColor: "volcano" },
-    /* 绿宝石 */
+    /* Emerald */
     { color: "#13c2c2", themeColor: "mingQing" },
-    /* 酸橙绿 */
+    /* Lime green */
     { color: "#52c41a", themeColor: "auroraGreen" }
   ]);
 
@@ -43,14 +43,14 @@ export function useDataThemeChange() {
     targetEl.className = flag ? `${className} ${clsName}` : className;
   }
 
-  /** 设置导航主题色 */
+  /** Set navigation theme color */
   function setLayoutThemeColor(
     theme = getConfig().Theme ?? "light",
     isClick = true
   ) {
     layoutTheme.value.theme = theme;
     document.documentElement.setAttribute("data-theme", theme);
-    // 如果非isClick，保留之前的themeColor
+    // If not isClick, keep the previous themeColor
     const storageThemeColor = $storage.layout.themeColor;
     $storage.layout = {
       layout: layout.value,
@@ -77,7 +77,7 @@ export function useDataThemeChange() {
     );
   }
 
-  /** 设置 `element-plus` 主题色 */
+  /** Set up `element-plus` theme color */
   const setEpThemeColor = (color: string) => {
     useEpThemeStoreHook().setEpThemeColor(color);
     document.documentElement.style.setProperty("--el-color-primary", color);
@@ -89,7 +89,7 @@ export function useDataThemeChange() {
     }
   };
 
-  /** 浅色、深色整体风格切换 */
+  /** Light and dark overall style switching */
   function dataThemeChange(overall?: string) {
     overallStyle.value = overall;
     if (useEpThemeStoreHook().epTheme === "light" && dataTheme.value) {
@@ -108,7 +108,7 @@ export function useDataThemeChange() {
     }
   }
 
-  /** 清空缓存并返回登录页 */
+  /** Clear the cache and return to the login page */
   function onReset() {
     removeToken();
     storageLocal().clear();

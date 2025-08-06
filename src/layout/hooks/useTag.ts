@@ -40,17 +40,17 @@ export function useTags() {
   const translateX = ref(0);
   const visible = ref(false);
   const activeIndex = ref(-1);
-  // 当前右键选中的路由信息
+  // The routing information currently selected by right click
   const currentSelect = ref({});
   const isScrolling = ref(false);
 
-  /** 显示模式，默认灵动模式 */
+  /** Display mode, default smart mode */
   const showModel = ref(
     storageLocal().getItem<StorageConfigs>(
       `${responsiveStorageNameSpace()}configure`
     )?.showModel || "smart"
   );
-  /** 是否隐藏标签页，默认显示 */
+  /** Whether to hide the tab, displayed by default */
   const showTags =
     ref(
       storageLocal().getItem<StorageConfigs>(
@@ -165,7 +165,7 @@ export function useTags() {
     visible.value = false;
   };
 
-  /** 鼠标移入添加激活样式 */
+  /** Add active style when mouse moves into */
   function onMouseenter(index) {
     if (index) activeIndex.value = index;
     if (unref(showModel) === "smart") {
@@ -180,7 +180,7 @@ export function useTags() {
     }
   }
 
-  /** 鼠标移出恢复默认样式 */
+  /** Move the mouse out to restore the default style */
   function onMouseleave(index) {
     activeIndex.value = -1;
     if (unref(showModel) === "smart") {

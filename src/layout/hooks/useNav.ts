@@ -25,7 +25,7 @@ export function useNav() {
   const routers = useRouter().options.routes;
   const { isFullscreen, toggle } = useFullscreen();
   const { wholeMenus } = storeToRefs(usePermissionStoreHook());
-  /** 平台`layout`中所有`el-tooltip`的`effect`配置，默认`light` */
+  /** The `effect` configuration of all `el-tooltip` in the platform `layout`, the default is `light` */
   const tooltipEffect = getConfig()?.TooltipEffect ?? "light";
 
   const getDivStyle = computed((): CSSProperties => {
@@ -38,21 +38,21 @@ export function useNav() {
     };
   });
 
-  /** 头像（如果头像为空则使用 src/assets/user.jpg ） */
+  /** Avatar (if avatar is empty, src/assets/user.jpg is used) */
   const userAvatar = computed(() => {
     return isAllEmpty(useUserStoreHook()?.avatar)
       ? Avatar
       : useUserStoreHook()?.avatar;
   });
 
-  /** 昵称（如果昵称为空则显示用户名） */
+  /** Nickname (username will be displayed if nickname is empty) */
   const username = computed(() => {
     return isAllEmpty(useUserStoreHook()?.nickname)
       ? useUserStoreHook()?.username
       : useUserStoreHook()?.nickname;
   });
 
-  /** 设置国际化选中后的样式 */
+  /** Set the style after internationalization is selected */
   const getDropdownItemStyle = computed(() => {
     return (locale, t) => {
       return {
@@ -89,14 +89,14 @@ export function useNav() {
     return $config.Title;
   });
 
-  /** 动态title */
+  /** Dynamic title */
   function changeTitle(meta: routeMetaType) {
     const Title = getConfig().Title;
     if (Title) document.title = `${transformI18n(meta.title)} | ${Title}`;
     else document.title = transformI18n(meta.title);
   }
 
-  /** 退出登录 */
+  /** Log out */
   function logout() {
     useUserStoreHook().logOut();
   }
