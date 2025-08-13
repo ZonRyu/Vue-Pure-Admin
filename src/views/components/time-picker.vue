@@ -8,7 +8,7 @@ defineOptions({
 const size = ref("default");
 const dynamicSize = ref();
 
-/** 时间选择器 */
+/** Time Picker */
 const value = ref("");
 const value1 = ref("");
 const value3 = ref();
@@ -45,7 +45,7 @@ watch(size, val =>
     : (dynamicSize.value = size.value)
 );
 
-/** 时间选择 */
+/** Time Selection */
 const value4 = ref("");
 const value5 = ref("");
 const startTime = ref("");
@@ -60,19 +60,19 @@ const endTime = ref("");
           <el-space wrap :size="40">
             <el-link
               v-tippy="{
-                content: '点击查看详细文档'
+                content: 'Click to view detailed documentation'
               }"
               href="https://element-plus.org/zh-CN/component/time-picker.html"
               target="_blank"
               style="font-size: 16px; font-weight: 800"
             >
-              时间选择器
+              Time Picker
             </el-link>
             <el-radio-group v-model="size">
-              <el-radio value="large">大尺寸</el-radio>
-              <el-radio value="default">默认尺寸</el-radio>
-              <el-radio value="small">小尺寸</el-radio>
-              <el-radio value="disabled">禁用</el-radio>
+              <el-radio value="large">Large</el-radio>
+              <el-radio value="default">Default</el-radio>
+              <el-radio value="small">Small</el-radio>
+              <el-radio value="disabled">Disabled</el-radio>
             </el-radio-group>
           </el-space>
         </div>
@@ -81,25 +81,25 @@ const endTime = ref("");
           href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/time-picker.vue"
           target="_blank"
         >
-          代码位置 src/views/components/time-picker.vue
+          Code location: src/views/components/time-picker.vue
         </el-link>
       </template>
 
-      <div class="mb-2">日期和时间点</div>
+      <div class="mb-2">Date and Time Selection</div>
       <el-space wrap>
-        <p class="text-[15px]">鼠标滚轮进行选择</p>
+        <p class="text-[15px]">Use mouse wheel to select</p>
         <el-time-picker
           v-model="value"
-          placeholder="请选择时间"
+          placeholder="Select time"
           class="w-[140px]!"
           :size="dynamicSize"
           :disabled="size === 'disabled'"
         />
-        <p class="text-[15px]">箭头进行选择</p>
+        <p class="text-[15px]">Use arrows to select</p>
         <el-time-picker
           v-model="value1"
           arrow-control
-          placeholder="请选择时间"
+          placeholder="Select time"
           class="w-[140px]!"
           :size="dynamicSize"
           :disabled="size === 'disabled'"
@@ -107,7 +107,7 @@ const endTime = ref("");
       </el-space>
       <el-divider />
 
-      <div class="mb-2">限制时间选择范围</div>
+      <div class="mb-2">Time Range Restrictions</div>
       <el-time-picker
         v-model="value2"
         class="w-[140px]!"
@@ -120,14 +120,14 @@ const endTime = ref("");
       />
       <el-divider />
 
-      <div class="mb-2">任意时间范围</div>
+      <div class="mb-2">Arbitrary Time Range</div>
       <el-time-picker
         v-model="value3"
         class="w-[220px]!"
         is-range
-        range-separator="至"
-        start-placeholder="开始时间"
-        end-placeholder="结束时间"
+        range-separator="to"
+        start-placeholder="Start time"
+        end-placeholder="End time"
         :size="dynamicSize"
         :disabled="size === 'disabled'"
       />
@@ -138,21 +138,21 @@ const endTime = ref("");
         <div class="card-header">
           <el-link
             v-tippy="{
-              content: '点击查看详细文档'
+              content: 'Click to view detailed documentation'
             }"
             href="https://element-plus.org/zh-CN/component/time-select.html"
             target="_blank"
             style="font-size: 16px; font-weight: 800"
           >
-            时间选择
+            Time Select
           </el-link>
         </div>
       </template>
 
-      <div class="mb-2">固定时间点</div>
+      <div class="mb-2">Fixed Time Points</div>
       <el-time-select
         v-model="value4"
-        placeholder="请选择时间"
+        placeholder="Select time"
         class="w-[140px]!"
         start="08:30"
         step="00:15"
@@ -161,10 +161,10 @@ const endTime = ref("");
         :disabled="size === 'disabled'"
       />
 
-      <div class="mb-2 mt-4">时间格式</div>
+      <div class="mb-2 mt-4">Time Format</div>
       <el-time-select
         v-model="value5"
-        placeholder="请选择时间"
+        placeholder="Select time"
         class="w-[140px]!"
         start="00:00"
         step="00:30"
@@ -174,11 +174,11 @@ const endTime = ref("");
         :disabled="size === 'disabled'"
       />
 
-      <div class="mb-2 mt-4">固定时间范围</div>
+      <div class="mb-2 mt-4">Fixed Time Range</div>
       <el-space wrap>
         <el-time-select
           v-model="startTime"
-          placeholder="开始时间"
+          placeholder="Start time"
           class="w-[140px]!"
           :max-time="endTime"
           start="08:30"
@@ -189,7 +189,7 @@ const endTime = ref("");
         />
         <el-time-select
           v-model="endTime"
-          placeholder="结束时间"
+          placeholder="End time"
           class="w-[140px]!"
           :min-time="startTime"
           start="08:30"

@@ -18,7 +18,7 @@ function tabClick({ index }) {
     <template #header>
       <div class="card-header">
         <span class="font-medium">
-          虚拟滚动采用
+          Virtual scrolling采用
           <el-link
             href="https://vxetable.cn/#/table/scroll/scroll"
             target="_blank"

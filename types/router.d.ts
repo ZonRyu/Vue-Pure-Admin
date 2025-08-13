@@ -1,4 +1,4 @@
-// 全局路由类型声明
+// Global route type declarations
 
 import type { RouteComponent, RouteLocationNormalized } from "vue-router";
 import type { FunctionalComponent } from "vue";
@@ -9,95 +9,95 @@ declare global {
   }
 
   /**
-   * @description 完整子路由的`meta`配置表
+   * @description Complete child route's `meta` configuration table
    */
   interface CustomizeRouteMeta {
-    /** 菜单名称（兼容国际化、非国际化，如何用国际化的写法就必须在根目录的`locales`文件夹下对应添加） `必填` */
+    /** Menu name (supports both internationalized and non-internationalized. If using internationalization, must add corresponding entry in `locales` folder in root directory) `Required` */
     title: string;
     /** 菜单图标 `可选` */
     icon?: string | FunctionalComponent;
-    /** 菜单名称右侧的额外图标 */
+    /** Additional icon on the right side of menu name */
     extraIcon?: string | FunctionalComponent;
     /** 是否在菜单中显示（默认`true`）`可选` */
     showLink?: boolean;
-    /** 是否显示父级菜单 `可选` */
+    /** Whether to show parent menu `Optional` */
     showParent?: boolean;
-    /** 页面级别权限设置 `可选` */
+    /** Page level permission settings `Optional` */
     roles?: Array<string>;
-    /** 按钮级别权限设置 `可选` */
+    /** Button level permission settings `Optional` */
     auths?: Array<string>;
-    /** 路由组件缓存（开启 `true`、关闭 `false`）`可选` */
+    /** Route component cache (enable `true`, disable `false`) `Optional` */
     keepAlive?: boolean;
-    /** 内嵌的`iframe`链接 `可选` */
+    /** Embedded `iframe` link `Optional` */
     frameSrc?: string;
-    /** `iframe`页是否开启首次加载动画（默认`true`）`可选` */
+    /** Whether to enable first load animation for `iframe` pages (default `true`) `Optional` */
     frameLoading?: boolean;
-    /** 页面加载动画（两种模式，第二种权重更高，第一种直接采用`vue`内置的`transitions`动画，第二种是使用`animate.css`编写进、离场动画，平台更推荐使用第二种模式，已经内置了`animate.css`，直接写对应的动画名即可）`可选` */
+    /** Page loading animation (two modes, second mode has higher priority. First mode uses Vue's built-in `transitions`, second mode uses `animate.css` for enter/leave animations. Platform recommends second mode as it has `animate.css` built-in, just write the animation name) `Optional` */
     transition?: {
       /**
-       * @description 当前路由动画效果
+       * @description Current route animation effect
        * @see {@link https://next.router.vuejs.org/guide/advanced/transitions.html#transitions}
        * @see animate.css {@link https://animate.style}
        */
       name?: string;
-      /** 进场动画 */
+      /** Enter animation */
       enterTransition?: string;
-      /** 离场动画 */
+      /** Leave animation */
       leaveTransition?: string;
     };
-    /** 当前菜单名称或自定义信息禁止添加到标签页（默认`false`） */
+    /** Prevent current menu name or custom info from being added to tabs (default `false`) */
     hiddenTag?: boolean;
-    /** 当前菜单名称是否固定显示在标签页且不可关闭（默认`false`） */
+    /** Whether the current menu name is fixed in the tab and cannot be closed (default `false`) */
     fixedTag?: boolean;
-    /** 动态路由可打开的最大数量 `可选` */
+    /** Maximum number of dynamic routes that can be opened `Optional` */
     dynamicLevel?: number;
-    /** 将某个菜单激活
-     * （主要用于通过`query`或`params`传参的路由，当它们通过配置`showLink: false`后不在菜单中显示，就不会有任何菜单高亮，
-     * 而通过设置`activePath`指定激活菜单即可获得高亮，`activePath`为指定激活菜单的`path`）
+    /** Activate a specific menu
+     * (Mainly used for routes that pass parameters via `query` or `params`. When they are configured with `showLink: false` and not shown in the menu,
+     * no menu will be highlighted. By setting `activePath` to specify the active menu, you can get the highlight. `activePath` is the `path` of the specified active menu)
      */
     activePath?: string;
   }
 
   /**
-   * @description 完整子路由配置表
+   * @description Complete child route configuration table
    */
   interface RouteChildrenConfigsTable {
-    /** 子路由地址 `必填` */
+    /** Child route path `Required` */
     path: string;
-    /** 路由名字（对应不要重复，和当前组件的`name`保持一致）`必填` */
+    /** Route name (must be unique, should match the component's `name`) `Required` */
     name?: string;
-    /** 路由重定向 `可选` */
+    /** Route redirect `Optional` */
     redirect?: string;
-    /** 按需加载组件 `可选` */
+    /** Lazy load component `Optional` */
     component?: RouteComponent;
     meta?: CustomizeRouteMeta;
-    /** 子路由配置项 */
+    /** Child route configuration */
     children?: Array<RouteChildrenConfigsTable>;
   }
 
   /**
-   * @description 整体路由配置表（包括完整子路由）
+   * @description Overall route configuration table (including complete child routes)
    */
   interface RouteConfigsTable {
-    /** 路由地址 `必填` */
+    /** Route path `Required` */
     path: string;
-    /** 路由名字（保持唯一）`可选` */
+    /** Route name (must be unique) `Optional` */
     name?: string;
-    /** `Layout`组件 `可选` */
+    /** `Layout` component `Optional` */
     component?: RouteComponent;
-    /** 路由重定向 `可选` */
+    /** Route redirect `Optional` */
     redirect?: string;
     meta?: {
-      /** 菜单名称（兼容国际化、非国际化，如何用国际化的写法就必须在根目录的`locales`文件夹下对应添加）`必填` */
+      /** Menu name (supports both internationalized and non-internationalized. If using internationalization, must add corresponding entry in `locales` folder in root directory) `Required` */
       title: string;
-      /** 菜单图标 `可选` */
+      /** Menu icon `Optional` */
       icon?: string | FunctionalComponent;
-      /** 是否在菜单中显示（默认`true`）`可选` */
+      /** Whether to show in menu (default `true`) `Optional` */
       showLink?: boolean;
-      /** 菜单升序排序，值越高排的越后（只针对顶级路由）`可选` */
+      /** Menu ascending sort, higher values are sorted later (only for top-level routes) `Optional` */
       rank?: number;
     };
-    /** 子路由配置项 */
+    /** Child route configuration */
     children?: Array<RouteChildrenConfigsTable>;
   }
 }

@@ -30,7 +30,7 @@ onBeforeUnmount(() => {
     <template #header>
       <div class="card-header">
         <span class="font-medium">
-          图片裁剪，基于开源的
+          Image cropping, based on the open source
           <el-link
             href="https://fengyuanchen.github.io/cropperjs/"
             target="_blank"
@@ -38,7 +38,7 @@ onBeforeUnmount(() => {
           >
             cropperjs
           </el-link>
-          进行二次封装（提示：右键下面左侧裁剪区可开启功能菜单）
+          for secondary encapsulation (tip: right-click the left cropping area below to enable the function menu)
         </span>
       </div>
       <el-link
@@ -46,7 +46,7 @@ onBeforeUnmount(() => {
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/cropping"
         target="_blank"
       >
-        代码位置 src/views/components/cropping
+        Code location src/views/components/cropping
       </el-link>
     </template>
     <div v-loading="!showPopover" element-loading-background="transparent">
@@ -75,11 +75,11 @@ onBeforeUnmount(() => {
           />
           <div v-if="infos" class="mt-1">
             <p>
-              图像大小：{{ parseInt(infos.width) }} ×
-              {{ parseInt(infos.height) }}像素
+              Image size: {{ parseInt(infos.width) }} ×
+              {{ parseInt(infos.height) }} pixels
             </p>
             <p>
-              文件大小：{{ formatBytes(infos.size) }}（{{ infos.size }} 字节）
+              File size: {{ formatBytes(infos.size) }}（{{ infos.size }} 字节）
             </p>
           </div>
         </div>

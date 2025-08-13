@@ -20,18 +20,18 @@ const checkboxGroup = ref(["apple", "tomato"]);
 const checkboxGroupBox = ref(["cucumber", "onion", "blueberry"]);
 const checkboxGroupCustom = ref(["tomato", "watermelon", "strawberry"]);
 
-/** 单选（可控制间距的按钮样式） */
+/** Single selection (controllable spacing button style) */
 const checkTag = ref([
   {
-    title: "等待中",
+    title: "Waiting",
     checked: false
   },
   {
-    title: "进行中",
+    title: "Progress",
     checked: true
   },
   {
-    title: "已完成",
+    title: "Completed",
     checked: false
   }
 ]);
@@ -45,23 +45,23 @@ function onChecked(tag, index) {
   checkTag.value.map(item => (item.checked = false));
   checkTag.value[index].checked = curTagMap.value[index].checked;
   const { title, checked } = curTagMap.value[index];
-  message(checked ? `已选中${title}` : `取消选中${title}`, {
+  message(checked ? `Selected ${title}` : `Cancel selection ${title}`, {
     type: "success"
   });
 }
 
-/** 多选（可控制间距的按钮样式） */
+/** Multi selection (controllable spacing button style) */
 const checkGroupTag = ref([
   {
-    title: "苹果",
+    title: "apple",
     checked: true
   },
   {
-    title: "西红柿",
+    title: "tomato",
     checked: true
   },
   {
-    title: "香蕉",
+    title: "banana",
     checked: false
   }
 ]);
@@ -92,12 +92,12 @@ watch(size, val =>
     <template #header>
       <div class="card-header">
         <el-space wrap :size="40">
-          <span style="font-size: 16px; font-weight: 800"> 可选按钮 </span>
+          <span style="font-size: 16px; font-weight: 800"> Optional button </span>
           <el-radio-group v-model="size">
-            <el-radio value="large">大尺寸</el-radio>
-            <el-radio value="default">默认尺寸</el-radio>
-            <el-radio value="small">小尺寸</el-radio>
-            <el-radio value="disabled">禁用</el-radio>
+            <el-radio value="large">Large size</el-radio>
+            <el-radio value="default">Default size</el-radio>
+            <el-radio value="small">Small size</el-radio>
+            <el-radio value="disabled">Disabled</el-radio>
           </el-radio-group>
         </el-space>
       </div>
@@ -106,34 +106,34 @@ watch(size, val =>
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/check-button.vue"
         target="_blank"
       >
-        代码位置 src/views/components/check-button.vue
+        Code location src/views/components/check-button.vue
       </el-link>
     </template>
-    <div class="mb-2">单选（紧凑风格的按钮样式）</div>
+    <div class="mb-2">Single selection (compact style button style)</div>
     <el-radio-group
       v-model="radio"
       :size="dynamicSize"
       :disabled="size === 'disabled'"
     >
-      <el-radio-button value="wait">等待中</el-radio-button>
-      <el-radio-button value="progress">进行中</el-radio-button>
-      <el-radio-button value="complete">已完成</el-radio-button>
+      <el-radio-button value="wait">Waiting</el-radio-button>
+      <el-radio-button value="progress">Progress</el-radio-button>
+      <el-radio-button value="complete">Completed</el-radio-button>
     </el-radio-group>
     <el-divider />
 
-    <div class="mb-2">单选（带有边框）</div>
+    <div class="mb-2">Single selection (with border)</div>
     <el-radio-group
       v-model="radioBox"
       :size="dynamicSize"
       :disabled="size === 'disabled'"
     >
-      <el-radio value="wait" border>等待中</el-radio>
-      <el-radio value="progress" border>进行中</el-radio>
-      <el-radio value="complete" border>已完成</el-radio>
+      <el-radio value="wait" border>Waiting</el-radio>
+      <el-radio value="progress" border>Progress</el-radio>
+      <el-radio value="complete" border>Completed</el-radio>
     </el-radio-group>
     <el-divider />
 
-    <div class="mb-2">单选（自定义内容）</div>
+    <div class="mb-2">Single selection (custom content)</div>
     <el-radio-group
       v-model="radioCustom"
       :size="dynamicSize"
@@ -142,49 +142,49 @@ watch(size, val =>
       <el-radio-button value="wait">
         <span class="flex">
           <IconifyIconOnline icon="ri:progress-8-fill" class="mr-1" />
-          等待中
+          Waiting
         </span>
       </el-radio-button>
       <el-radio-button value="progress">
         <span class="flex">
           <IconifyIconOnline icon="ri:progress-6-line" class="mr-1" />
-          进行中
+          Progress
         </span>
       </el-radio-button>
       <el-radio-button value="complete">
         <span class="flex">
           <IconifyIconOnline icon="ri:progress-8-line" class="mr-1" />
-          已完成
+          Completed
         </span>
       </el-radio-button>
     </el-radio-group>
     <el-divider />
 
-    <div class="mb-2">多选（紧凑风格的按钮样式）</div>
+    <div class="mb-2">Multi selection (compact style button style)</div>
     <el-checkbox-group
       v-model="checkboxGroup"
       :size="dynamicSize"
       :disabled="size === 'disabled'"
     >
-      <el-checkbox-button value="apple">苹果</el-checkbox-button>
-      <el-checkbox-button value="tomato">西红柿</el-checkbox-button>
-      <el-checkbox-button value="banana">香蕉</el-checkbox-button>
+      <el-checkbox-button value="apple">Apple</el-checkbox-button>
+      <el-checkbox-button value="tomato">Tomato</el-checkbox-button>
+      <el-checkbox-button value="banana">Banana</el-checkbox-button>
     </el-checkbox-group>
     <el-divider />
 
-    <div class="mb-2">多选（带有边框）</div>
+    <div class="mb-2">Multi selection (with border)</div>
     <el-checkbox-group
       v-model="checkboxGroupBox"
       :size="dynamicSize"
       :disabled="size === 'disabled'"
     >
-      <el-checkbox value="cucumber" border>黄瓜</el-checkbox>
-      <el-checkbox value="onion" border>洋葱</el-checkbox>
-      <el-checkbox value="blueberry" border>蓝莓</el-checkbox>
+      <el-checkbox value="cucumber" border>Cucumber</el-checkbox>
+      <el-checkbox value="onion" border>Onion</el-checkbox>
+      <el-checkbox value="blueberry" border>Blueberry</el-checkbox>
     </el-checkbox-group>
     <el-divider />
 
-    <div class="mb-2">多选（来点不一样的体验）</div>
+    <div class="mb-2">Multi selection (come up with a different experience)</div>
     <el-checkbox-group
       v-model="checkboxGroupCustom"
       class="pure-checkbox"
@@ -194,7 +194,7 @@ watch(size, val =>
       <el-checkbox-button value="tomato">
         <span class="flex">
           <IconifyIconOnline icon="streamline-emojis:tomato" class="mr-1" />
-          番茄
+          Tomato
         </span>
       </el-checkbox-button>
       <el-checkbox-button value="watermelon">
@@ -203,7 +203,7 @@ watch(size, val =>
             icon="streamline-emojis:watermelon-1"
             class="mr-1"
           />
-          西瓜
+          Watermelon
         </span>
       </el-checkbox-button>
       <el-checkbox-button value="strawberry">
@@ -212,20 +212,20 @@ watch(size, val =>
             icon="streamline-emojis:strawberry-1"
             class="mr-1"
           />
-          草莓
+          Strawberry
         </span>
       </el-checkbox-button>
     </el-checkbox-group>
     <el-divider />
 
-    <div>可控制间距的按钮样式</div>
+    <div>Controllable spacing button style</div>
     <el-slider
       v-model="spaceSize"
       class="mb-2 w-[300px]!"
       :show-tooltip="false"
       :disabled="size === 'disabled'"
     />
-    <div class="mb-2">单选</div>
+    <div class="mb-2">Single selection (controllable spacing button style)</div>
     <el-space wrap :size="spaceSize">
       <el-check-tag
         v-for="(tag, index) in checkTag"
@@ -242,7 +242,7 @@ watch(size, val =>
       </el-check-tag>
     </el-space>
     <div class="mb-2 mt-4">
-      多选
+      Multi selection
       {{
         getKeyList(
           checkGroupTag.filter(tag => tag.checked),
@@ -267,7 +267,7 @@ watch(size, val =>
     </el-space>
     <el-divider />
 
-    <div class="mb-2">单个可选按钮</div>
+    <div class="mb-2">Single optional button</div>
     <el-check-tag
       :class="[
         'select-none',
@@ -277,7 +277,7 @@ watch(size, val =>
       :checked="checked"
       @change="onSingleChecked"
     >
-      一个人也要努力 😊
+      One person also needs to work hard 😊
     </el-check-tag>
   </el-card>
 </template>
@@ -289,7 +289,7 @@ watch(size, val =>
 
 :deep(.pure-checkbox) {
   .el-checkbox-button {
-    /* 选中时的自定义样式 */
+    /* Selected custom style */
     &.is-checked {
       .el-checkbox-button__inner {
         color: var(--el-color-primary);
@@ -299,7 +299,7 @@ watch(size, val =>
       }
     }
 
-    /* 禁用时的自定义样式 */
+    /* Disabled custom style */
     &.is-disabled {
       .el-checkbox-button__inner {
         color: var(--el-disabled-text-color);
@@ -316,7 +316,7 @@ watch(size, val =>
   }
 }
 
-/** 可控制间距的按钮禁用样式 */
+/** Controllable spacing button disabled style */
 .tag-disabled {
   color: var(--el-disabled-text-color);
   cursor: not-allowed;

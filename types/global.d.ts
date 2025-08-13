@@ -2,11 +2,11 @@ import type { ECharts } from "echarts";
 import type { TableColumns } from "@pureadmin/table";
 
 /**
- * 全局类型声明，无需引入直接在 `.vue` 、`.ts` 、`.tsx` 文件使用即可获得类型提示
+ * Global type declarations, no need to import, can be used directly in `.vue`, `.ts`, `.tsx` files for type hints
  */
 declare global {
   /**
-   * 平台的名称、版本、运行所需的`node`和`pnpm`版本、依赖、最后构建时间的类型提示
+   * Type hints for platform name, version, required `node` and `pnpm` versions, dependencies, and last build time
    */
   const __APP_INFO__: {
     pkg: {
@@ -23,7 +23,7 @@ declare global {
   };
 
   /**
-   * Window 的类型提示
+   * Type hints for Window
    */
   interface Window {
     // Global vue app instance
@@ -39,7 +39,7 @@ declare global {
   }
 
   /**
-   * Document 的类型提示
+   * Type hints for Document
    */
   interface Document {
     webkitFullscreenElement?: Element;
@@ -48,7 +48,7 @@ declare global {
   }
 
   /**
-   * 打包压缩格式的类型声明
+   * Type declarations for build compression formats
    */
   type ViteCompression =
     | "none"
@@ -60,7 +60,7 @@ declare global {
     | "both-clear";
 
   /**
-   * 全局自定义环境变量的类型声明
+   * Global custom environment variables type declarations
    * @see {@link https://pure-admin.cn/pages/config/#%E5%85%B7%E4%BD%93%E9%85%8D%E7%BD%AE}
    */
   interface ViteEnv {
@@ -73,12 +73,12 @@ declare global {
   }
 
   /**
-   *  继承 `@pureadmin/table` 的 `TableColumns` ，方便全局直接调用
+   *  Extends `TableColumns` from `@pureadmin/table` for easy global access
    */
   type TableColumnList = Array<TableColumns>;
 
   /**
-   * 对应 `public/platform-config.json` 文件的类型声明
+   * Type declarations corresponding to `public/platform-config.json` file
    * @see {@link https://pure-admin.cn/pages/config/#platform-config-json}
    */
   interface PlatformConfigs {
@@ -119,7 +119,7 @@ declare global {
   }
 
   /**
-   * 与 `PlatformConfigs` 类型不同，这里是缓存到浏览器本地存储的类型声明
+   * Different from `PlatformConfigs` type, these are type declarations for browser local storage caching
    * @see {@link https://pure-admin.cn/pages/config/#platform-config-json}
    */
   interface StorageConfigs {
@@ -185,7 +185,7 @@ declare global {
   }
 
   /**
-   * 平台里所有组件实例都能访问到的全局属性对象的类型声明
+   * Type declarations for global properties accessible to all component instances in the platform
    */
   interface GlobalPropertiesApi {
     $echarts: ECharts;
@@ -194,10 +194,10 @@ declare global {
   }
 
   /**
-   * 扩展 `Element`
+   * Extend `Element`
    */
   interface Element {
-    // v-ripple 作用于 src/directives/ripple/index.ts 文件
+    // v-ripple is implemented in src/directives/ripple/index.ts file
     _ripple?: {
       enabled?: boolean;
       centered?: boolean;

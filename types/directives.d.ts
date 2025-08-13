@@ -3,23 +3,23 @@ import type { CopyEl, OptimizeOptions, RippleOptions } from "@/directives";
 
 declare module "vue" {
   export interface ComponentCustomProperties {
-    /** `Loading` 动画加载指令，具体看：https://element-plus.org/zh-CN/component/loading.html#%E6%8C%87%E4%BB%A4 */
+    /** `Loading` animation directive, see: https://element-plus.org/en-US/component/loading.html#directive */
     vLoading: Directive<Element, boolean>;
-    /** 按钮权限指令（根据路由`meta`中的`auths`字段进行判断）*/
+    /** Button permission directive (determined by the `auths` field in route `meta`) */
     vAuth: Directive<HTMLElement, string | Array<string>>;
-    /** 文本复制指令（默认双击复制） */
+    /** Text copy directive (double-click to copy by default) */
     vCopy: Directive<CopyEl, string>;
-    /** 长按指令 */
+    /** Long press directive */
     vLongpress: Directive<HTMLElement, Function>;
-    /** 防抖、节流指令 */
+    /** Debounce and throttle directive */
     vOptimize: Directive<HTMLElement, OptimizeOptions>;
-    /** 按钮权限指令（根据登录接口返回的`permissions`字段进行判断）*/
+    /** Button permission directive (determined by the `permissions` field returned from the login API) */
     vPerms: Directive<HTMLElement, string | Array<string>>;
     /**
-     * `v-ripple`指令，用法如下：
-     * 1. `v-ripple`代表启用基本的`ripple`功能
-     * 2. `v-ripple="{ class: 'text-red' }"`代表自定义`ripple`颜色，支持`tailwindcss`，生效样式是`color`
-     * 3. `v-ripple.center`代表从中心扩散
+     * `v-ripple` directive, usage is as follows:
+     * 1. `v-ripple` enables the basic `ripple` functionality
+     * 2. `v-ripple="{ class: 'text-red' }"` represents customizing the `ripple` color, supports `tailwindcss`, the effective style is `color`
+     * 3. `v-ripple.center` means to spread from the center
      */
     vRipple: Directive<HTMLElement, RippleOptions>;
   }

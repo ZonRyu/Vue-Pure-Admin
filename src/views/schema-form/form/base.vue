@@ -22,18 +22,18 @@ const rules = {
   name: [
     {
       required: true,
-      message: "请输入名称"
+      message: "Please enter name"
     }
   ]
 };
 
 const columns: PlusColumn[] = [
   {
-    label: "名称",
+    label: "Name",
     width: 120,
     prop: "name",
     valueType: "copy",
-    tooltip: "我是名称"
+    tooltip: "I am name"
   },
   {
     label: "状态",

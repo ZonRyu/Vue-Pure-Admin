@@ -13,107 +13,107 @@ import forms, { type FormProps } from "./form.vue";
 
 function onBaseClick() {
   addDrawer({
-    title: "基础用法",
-    contentRenderer: () => <p>抽屉内容-基础用法</p> // jsx 语法 （注意在.vue文件启用jsx语法，需要在script开启lang="tsx"）
+    title: "Basic Usage",
+    contentRenderer: () => <p>Drawer content - Basic Usage</p> // jsx 语法 （注意在.vue文件启用jsx语法，需要在script开启lang="tsx"）
   });
 }
 
 function onModalClick() {
   addDrawer({
-    title: "无背景遮罩层",
+    title: "Without background mask layer",
     modal: false,
-    contentRenderer: () => <p>抽屉内容-无背景遮罩层</p>
+    contentRenderer: () => <p>Drawer content - Without background mask layer</p>
   });
 }
 
-// 添加 600ms 防抖
+// Add 600ms debounce
 const onoOpenDelayClick = debounce(
   () =>
     addDrawer({
-      title: "延时2秒打开抽屉",
+      title: "Delay 2 seconds to open drawer",
       openDelay: 2000 - 600,
-      contentRenderer: () => <p>抽屉内容-延时2秒打开抽屉</p>
+      contentRenderer: () => <p>Drawer content - Delay 2 seconds to open drawer</p>
     }),
   600
 );
 
 function onCloseDelayClick() {
   addDrawer({
-    title: "延时2秒关闭抽屉",
+    title: "Delay 2 seconds to close drawer",
     closeDelay: 2000,
-    contentRenderer: () => <p>抽屉内容-延时2秒关闭抽屉</p>
+    contentRenderer: () => <p>Drawer content - Delay 2 seconds to close drawer</p>
   });
 }
 
 function onShowCloseClick() {
   addDrawer({
-    title: "不显示右上角关闭按钮图标",
+    title: "Do not display the close button icon in the upper right corner",
     showClose: false,
-    contentRenderer: () => <p>抽屉内容-不显示右上角关闭按钮图标</p>
+    contentRenderer: () => <p>Drawer content - Do not display the close button icon in the upper right corner</p>
   });
 }
 
 function onBeforeCloseClick() {
   addDrawer({
-    title: "禁止通过键盘ESC关闭",
+    title: "Prohibited from closing through keyboard ESC",
     closeOnPressEscape: false,
-    contentRenderer: () => <p>抽屉内容-禁止通过键盘ESC关闭</p>
+    contentRenderer: () => <p>Drawer content - Prohibited from closing through keyboard ESC</p>
   });
 }
 
 function onCloseOnClickModalClick() {
   addDrawer({
-    title: "禁止通过点击modal关闭",
+    title: "Prohibited from closing through clicking modal",
     closeOnClickModal: false,
-    contentRenderer: () => <p>抽屉内容-禁止通过点击modal关闭</p>
+    contentRenderer: () => <p>Drawer content - Prohibited from closing through clicking modal</p>
   });
 }
 
 function onHideFooterClick() {
   addDrawer({
-    title: "隐藏底部取消、确定按钮",
+    title: "Hide bottom cancel, confirm buttons",
     hideFooter: true,
-    contentRenderer: () => <p>抽屉内容-隐藏底部取消、确定按钮</p>
+    contentRenderer: () => <p>Drawer content - Hide bottom cancel, confirm buttons</p>
   });
 }
 
 function onHeaderRendererClick() {
   addDrawer({
-    title: "自定义头部",
+    title: "Custom header",
     showClose: false,
     headerRenderer: ({ close, titleId, titleClass }) => (
-      // jsx 语法
+      // jsx syntax
       <div class="flex flex-row justify-between">
         <h4 id={titleId} class={titleClass}>
-          自定义头部
+          Custom header
         </h4>
         <el-button type="danger" onClick={close}>
           关闭
         </el-button>
       </div>
     ),
-    contentRenderer: () => <p>抽屉内容-自定义头部</p>
+    contentRenderer: () => <p>Drawer content - Custom header</p>
   });
 }
 
 function onFooterRendererClick() {
   addDrawer({
-    title: "自定义底部",
+    title: "Custom footer",
     footerRenderer: ({ options, index }) => (
       <el-button onClick={() => closeDrawer(options, index)}>
         {options.title}-{index}
       </el-button>
     ),
-    contentRenderer: () => <p>抽屉内容-自定义底部</p>
+    contentRenderer: () => <p>Drawer content - Custom footer</p>
   });
 }
 
 function onFooterButtonsClick() {
   addDrawer({
-    title: "自定义底部按钮",
+    title: "Custom footer buttons",
     footerButtons: [
       {
-        label: "按钮1",
+        label: "Button 1",
         size: "small",
         type: "success",
         btnClick: ({ drawer: { options, index }, button }) => {
@@ -122,7 +122,7 @@ function onFooterButtonsClick() {
         }
       },
       {
-        label: "按钮2",
+        label: "Button 2",
         text: true,
         bg: true,
         btnClick: ({ drawer: { options, index }, button }) => {
@@ -131,7 +131,7 @@ function onFooterButtonsClick() {
         }
       },
       {
-        label: "按钮3",
+        label: "Button 3",
         size: "large",
         type: "warning",
         btnClick: ({ drawer: { options, index }, button }) => {
@@ -140,233 +140,233 @@ function onFooterButtonsClick() {
         }
       }
     ],
-    contentRenderer: () => <p>抽屉内容-自定义底部按钮</p>
+    contentRenderer: () => <p>Drawer content - Custom footer buttons</p>
   });
 }
 
 function onOpenClick() {
   addDrawer({
-    title: "打开后的回调",
+    title: "Open callback",
     open: ({ options, index }) => message({ options, index } as any),
-    contentRenderer: () => <p>抽屉内容-打开后的回调</p>
+    contentRenderer: () => <p>Drawer content - Open callback</p>
   });
 }
 
 function onCloseCallBackClick() {
   addDrawer({
-    title: "关闭后的回调",
+    title: "Close callback",
     closeCallBack: ({ options, index, args }) => {
       console.log(options, index, args);
       let text = "";
       if (args?.command === "cancel") {
-        text = "您点击了取消按钮";
+        text = "You clicked the cancel button";
       } else if (args?.command === "sure") {
-        text = "您点击了确定按钮";
+        text = "You clicked the sure button";
       } else {
-        text = "您点击了右上角关闭按钮或空白页或按下了esc键";
+        text = "You clicked the right upper corner close button or blank page or pressed esc key";
       }
       message(text);
     },
-    contentRenderer: () => <p>抽屉内容-关闭后的回调</p>
+    contentRenderer: () => <p>Drawer content - Close callback</p>
   });
 }
 
-// 这里为了演示方便，使用了嵌套写法，实际情况下最好把 addDrawer 函数抽出来 套娃不可取
+// For the convenience of demonstration, we used nested writing, but in actual situations, it is best to extract the addDrawer function. Nesting is not recommended
 function onNestingClick() {
   addDrawer({
-    title: "嵌套的抽屉",
+    title: "Nested drawer",
     size: "50%",
     contentRenderer: ({ index }) => (
       <el-button
         onClick={() =>
           addDrawer({
-            title: `第${index + 1}个子抽屉`,
+            title: `The ${index + 1}th child drawer`,
             size: "40%",
             contentRenderer: ({ index }) => (
               <el-button
                 onClick={() =>
                   addDrawer({
-                    title: `第${index + 1}个子抽屉`,
+                    title: `The ${index + 1}th child drawer`,
                     size: "30%",
                     contentRenderer: () => (
                       <>
                         <el-button round onClick={() => closeAllDrawer()}>
-                          哎呦，你干嘛，赶快关闭所有抽屉
+                          Oh my god, what are you doing, quickly close all drawers
                         </el-button>
                       </>
                     )
                   })
                 }
               >
-                点击打开第{index + 1}个子抽屉
+                Click to open the {index + 1}th child drawer
               </el-button>
             )
           })
         }
       >
-        点击打开第{index + 1}个子抽屉
+        Click to open the {index + 1}th child drawer
       </el-button>
     )
   });
 }
 
-// 满足在 contentRenderer 内容区更改抽屉自身属性值的场景
+//满足 in contentRenderer content area to change the drawer's own attribute value
 function onUpdateClick() {
   const curPage = ref(1);
   addDrawer({
-    title: `第${curPage.value}页`,
+    title: `Page ${curPage.value}`,
     contentRenderer: () => (
       <>
         <el-button
           disabled={curPage.value <= 1}
           onClick={() => {
             curPage.value -= 1;
-            updateDrawer(`第${curPage.value}页`);
+            updateDrawer(`Page ${curPage.value}`);
           }}
         >
-          上一页
+          Previous page
         </el-button>
         <el-button
           onClick={() => {
             curPage.value += 1;
-            updateDrawer(`第${curPage.value}页`);
+            updateDrawer(`Page ${curPage.value}`);
           }}
         >
-          下一页
+          Next page
         </el-button>
       </>
     )
   });
 }
 
-// Popconfirm 确认框
+// Popconfirm confirmation box
 function onPopConfirmClick() {
   addDrawer({
     size: "30%",
-    title: "Popconfirm确认框示例",
-    popConfirm: { title: "是否确认修改当前数据" },
-    contentRenderer: () => <p>点击右下方确定按钮看看效果吧</p>
+    title: "Popconfirm confirmation box example",
+    popConfirm: { title: "Confirm modification of current data" },
+    contentRenderer: () => <p>Click the confirm button below to see the effect</p>
   });
 }
 
-// 结合Form表单（第一种方式，抽屉关闭立刻恢复初始值）通过 props 属性接收子组件的 prop 并赋值
+// Combine Form form (first way, the drawer closes immediately and restores the initial value) receive the prop of the child component and assign it
 function onFormOneClick() {
   addDrawer({
     size: "30%",
-    title: "结合Form表单（第一种方式）",
+    title: "Combine Form form (first way)",
     contentRenderer: () => forms,
     props: {
-      // 赋默认值
+      // Assign default value
       formInline: {
-        user: "菜虚鲲",
-        region: "浙江"
+        user: "Cai Xukun",
+        region: "Zhejiang"
       }
     },
     closeCallBack: ({ options, args }) => {
-      // options.props 是响应式的
+      // options.props is reactive
       const { formInline } = options.props as FormProps;
-      const text = `姓名：${formInline.user} 城市：${formInline.region}`;
+      const text = `Name: ${formInline.user} City: ${formInline.region}`;
       if (args?.command === "cancel") {
-        // 您点击了取消按钮
-        message(`您点击了取消按钮，当前表单数据为 ${text}`);
+        // You clicked the cancel button
+        message(`You clicked the cancel button, current form data is ${text}`);
       } else if (args?.command === "sure") {
-        message(`您点击了确定按钮，当前表单数据为 ${text}`);
+        message(`You clicked the sure button, current form data is ${text}`);
       } else {
         message(
-          `您点击了右上角关闭按钮或空白页或按下了esc键，当前表单数据为 ${text}`
+          `You clicked the right upper corner close button or blank page or pressed esc key, current form data is ${text}`
         );
       }
     }
   });
 }
 
-// 结合Form表单（第二种方式）h 渲染函数 https://cn.vuejs.org/api/render-function.html#h
+// Combine Form form (second way, h rendering function) https://cn.vuejs.org/api/render-function.html#h
 const formInline = ref({
-  user: "菜虚鲲",
-  region: "浙江"
+  user: "Cai Xukun",
+  region: "Zhejiang"
 });
 const resetFormInline = cloneDeep(formInline.value);
 function onFormTwoClick() {
   addDrawer({
     size: "30%",
-    title: "结合Form表单（第二种方式）",
+    title: "Combine Form form (second way)",
     contentRenderer: () =>
       h(forms, {
         formInline: formInline.value
       }),
     closeCallBack: () => {
       message(
-        `当前表单数据为 姓名：${formInline.value.user} 城市：${formInline.value.region}`
+        `Current form data is Name: ${formInline.value.user} City: ${formInline.value.region}`
       );
-      // 重置表单数据
+      // Reset form data
       formInline.value = cloneDeep(resetFormInline);
     }
   });
 }
 
-// 结合Form表单（第三种方式）createVNode 渲染函数 https://cn.vuejs.org/guide/extras/render-function.html#creating-vnodes
+// Combine Form form (third way, createVNode rendering function) https://cn.vuejs.org/guide/extras/render-function.html#creating-vnodes
 const formThreeInline = ref({
-  user: "菜虚鲲",
-  region: "浙江"
+  user: "Cai Xukun",
+  region: "Zhejiang"
 });
 const resetFormThreeInline = cloneDeep(formThreeInline.value);
 function onFormThreeClick() {
   addDrawer({
     size: "30%",
-    title: "结合Form表单（第三种方式）",
+    title: "Combine Form form (third way)",
     contentRenderer: () =>
       createVNode(forms, {
         formInline: formThreeInline.value
       }),
     closeCallBack: () => {
       message(
-        `当前表单数据为 姓名：${formThreeInline.value.user} 城市：${formThreeInline.value.region}`
+        `Current form data is Name: ${formThreeInline.value.user} City: ${formThreeInline.value.region}`
       );
-      // 重置表单数据
+      // Reset form data
       formThreeInline.value = cloneDeep(resetFormThreeInline);
     }
   });
 }
 
-// 结合Form表单（第四种方式）使用jsx语法
-// 需要注意的是如果 forms 没注册，这里 forms 注册了是因为上面 contentRenderer: () => forms、h(forms) 、createVNode(createVNode) 间接给注册了
-// 如果只使用了jsx语法，如下 `contentRenderer: () => <forms formInline={formFourInline.value} />` 是不会给 forms 组件进行注册的，需要在 `script` 中任意位置（最好是末尾）写上 forms 即可
-// 同理如果在 tsx 文件中，这么使用 `contentRenderer: () => <forms formInline={formFourInline.value} />`，也是不会给 forms 组件进行注册，需要在 return 中写上 forms
+// Combine Form form (fourth way, jsx syntax)
+// Note that if forms is not registered, here forms is registered because above contentRenderer: () => forms、h(forms) 、createVNode(createVNode) indirectly registered it
+// If only using jsx syntax, as shown below `contentRenderer: () => <forms formInline={formFourInline.value} />` will not register the forms component, need to write forms in `script` at any position (best at the end)
+// Similarly, if using `contentRenderer: () => <forms formInline={formFourInline.value} />` in tsx file, it will not register the forms component, need to write forms in return
 const formFourInline = ref({
-  user: "菜虚鲲",
-  region: "浙江"
+  user: "Cai Xukun",
+  region: "Zhejiang"
 });
 const resetFormFourInline = cloneDeep(formFourInline.value);
 function onFormFourClick() {
   addDrawer({
     size: "30%",
-    title: "结合Form表单（第四种方式）",
+    title: "Combine Form form (fourth way)",
     contentRenderer: () => <forms formInline={formFourInline.value} />,
     closeCallBack: () => {
       message(
-        `当前表单数据为 姓名：${formFourInline.value.user} 城市：${formFourInline.value.region}`
+        `Current form data is Name: ${formFourInline.value.user} City: ${formFourInline.value.region}`
       );
-      // 重置表单数据
+      // Reset form data
       formFourInline.value = cloneDeep(resetFormFourInline);
     }
   });
 }
 
-// 子组件 prop 为 primitive 类型的 demo
+// Subcomponent prop is primitive type demo
 const formPrimitiveParam = ref("Hello World");
 const resetFormPrimitiveParam = ref(formPrimitiveParam.value);
 function onFormPrimitiveFormClick() {
   addDrawer({
     size: "30%",
-    title: "子组件 prop 为 primitive 类型 demo",
+    title: "Subcomponent prop is primitive type demo",
     contentRenderer: () =>
       h(formPrimitive, {
         data: formPrimitiveParam.value,
         "onUpdate:data": val => (formPrimitiveParam.value = val)
       }),
     closeCallBack: () => {
-      message(`当前表单内容：${formPrimitiveParam.value}`);
-      // 重置表单数据
+      message(`Current form content: ${formPrimitiveParam.value}`);
+      // Reset form data
       formPrimitiveParam.value = resetFormPrimitiveParam.value;
     }
   });
@@ -374,9 +374,9 @@ function onFormPrimitiveFormClick() {
 
 function onBeforeCancelClick() {
   addDrawer({
-    title: "点击底部取消按钮的回调",
+    title: "Click the bottom cancel button callback",
     contentRenderer: () => (
-      <p>抽屉内容-点击底部取消按钮的回调（会暂停抽屉的关闭）</p>
+      <p>Drawer content - Click the bottom cancel button callback (will pause the drawer's closing)</p>
     ),
     beforeCancel: (done, { options, index }) => {
       console.log(
@@ -385,17 +385,17 @@ function onBeforeCancelClick() {
         options,
         index
       );
-      // done(); // 需要关闭把注释解开即可
+      // done(); // To close, uncomment
     }
   });
 }
 
 function onBeforeSureClick() {
   addDrawer({
-    title: "点击底部确定按钮的回调",
+    title: "Click the bottom sure button callback",
     contentRenderer: () => (
       <p>
-        抽屉内容-点击底部确定按钮的回调（会暂停抽屉的关闭，经常用于新增、修改抽屉内容后调用接口）
+        Drawer content - Click the bottom sure button callback (will pause the drawer's closing, often used for calling interfaces after adding or modifying drawer content)
       </p>
     ),
     beforeSure: (done, { options, index }) => {
@@ -405,7 +405,7 @@ function onBeforeSureClick() {
         options,
         index
       );
-      // done(); // 需要关闭把注释解开即可
+      // done(); // To close, uncomment
     }
   });
 }
@@ -413,11 +413,11 @@ function onBeforeSureClick() {
 function onSureBtnLoading() {
   addDrawer({
     sureBtnLoading: true,
-    title: "点击底部确定按钮可开启按钮动画",
-    contentRenderer: () => <p>抽屉内容-点击底部确定按钮可开启按钮动画</p>,
+    title: "Click the bottom sure button to enable button animation",
+    contentRenderer: () => <p>Drawer content - Click the bottom sure button to enable button animation</p>,
     beforeSure: (done, { closeLoading }) => {
-      // closeLoading(); // 关闭确定按钮动画，不关闭抽屉
-      // done() // 关闭确定按钮动画并关闭抽屉
+      // closeLoading(); // Close the button animation, do not close the drawer
+      // done() // Close the button animation and close the drawer
       setTimeout(() => done(), 800);
     }
   });
@@ -429,7 +429,7 @@ function onSureBtnLoading() {
     <template #header>
       <div class="card-header">
         <span class="font-medium">
-          二次封装 Element Plus 的
+         Secondary encapsulation of Element Plus
           <el-link
             href="https://element-plus.org/zh-CN/component/drawer.html"
             target="_blank"
@@ -443,59 +443,59 @@ function onSureBtnLoading() {
         href="https://github.com/pure-admin/vue-pure-admin/tree/main/src/views/components/drawer"
         target="_blank"
       >
-        代码位置 src/views/components/drawer
+        Code location src/views/components/drawer
       </el-link>
     </template>
     <el-space wrap>
-      <el-button @click="onBaseClick">基础用法</el-button>
-      <el-button @click="onModalClick"> 无背景遮罩层 </el-button>
-      <el-button @click="onoOpenDelayClick"> 延时2秒打开抽屉 </el-button>
-      <el-button @click="onCloseDelayClick"> 延时2秒关闭抽屉 </el-button>
+      <el-button @click="onBaseClick">Basic usage</el-button>
+      <el-button @click="onModalClick"> No background mask layer </el-button>
+      <el-button @click="onoOpenDelayClick"> Delay 2 seconds to open drawer </el-button>
+      <el-button @click="onCloseDelayClick"> Delay 2 seconds to close drawer </el-button>
       <el-button @click="onShowCloseClick">
-        不显示右上角关闭按钮图标
+        Do not display the close button icon in the upper right corner
       </el-button>
-      <el-button @click="onBeforeCloseClick"> 禁止通过键盘ESC关闭 </el-button>
+      <el-button @click="onBeforeCloseClick">Disable closing with ESC key</el-button>
       <el-button @click="onCloseOnClickModalClick">
-        禁止通过点击modal关闭
+        Disable closing by clicking modal
       </el-button>
-      <el-button @click="onHideFooterClick"> 隐藏底部取消、确定按钮 </el-button>
-      <el-button @click="onHeaderRendererClick"> 自定义头部 </el-button>
-      <el-button @click="onFooterRendererClick"> 自定义底部 </el-button>
-      <el-button @click="onFooterButtonsClick"> 自定义底部按钮 </el-button>
-      <el-button @click="onOpenClick"> 打开后的回调 </el-button>
-      <el-button @click="onCloseCallBackClick"> 关闭后的回调 </el-button>
-      <el-button @click="onNestingClick"> 嵌套的抽屉 </el-button>
-      <el-button @click="onUpdateClick"> 更改抽屉自身属性值 </el-button>
-      <el-button @click="onPopConfirmClick">Popconfirm确认框</el-button>
+      <el-button @click="onHideFooterClick">Hide bottom cancel/confirm buttons</el-button>
+      <el-button @click="onHeaderRendererClick">Custom Header</el-button>
+      <el-button @click="onFooterRendererClick">Custom Footer</el-button>
+      <el-button @click="onFooterButtonsClick">Custom Footer Buttons</el-button>
+      <el-button @click="onOpenClick">Open Callback</el-button>
+      <el-button @click="onCloseCallBackClick">Close Callback</el-button>
+      <el-button @click="onNestingClick">Nested Drawers</el-button>
+      <el-button @click="onUpdateClick">Update Drawer Properties</el-button>
+      <el-button @click="onPopConfirmClick">Popconfirm Dialog</el-button>
     </el-space>
     <el-divider />
     <el-space wrap>
       <el-button @click="onFormOneClick">
-        结合Form表单（第一种方式）
+        With Form (Method 1)
       </el-button>
       <el-button @click="onFormTwoClick">
-        结合Form表单（第二种方式）
+        With Form (Method 2)
       </el-button>
       <el-button @click="onFormThreeClick">
-        结合Form表单（第三种方式）
+        With Form (Method 3)
       </el-button>
       <el-button @click="onFormFourClick">
-        结合Form表单（第四种方式）
+        With Form (Method 4)
       </el-button>
       <el-button @click="onFormPrimitiveFormClick">
-        子组件 prop 为 primitive 类型
+        Child Component with Primitive Prop
       </el-button>
     </el-space>
     <el-divider />
     <el-space wrap>
       <el-button @click="onBeforeCancelClick">
-        点击底部取消按钮的回调（会暂停抽屉的关闭）
+        Click the bottom cancel button callback (will pause the drawer's closing)
       </el-button>
       <el-button @click="onBeforeSureClick">
-        点击底部确定按钮的回调（会暂停抽屉的关闭，经常用于新增、修改抽屉内容后调用接口）
+        Click the bottom sure button callback (will pause the drawer's closing, often used for calling interfaces after adding or modifying drawer content)
       </el-button>
       <el-button @click="onSureBtnLoading">
-        点击底部确定按钮可开启按钮动画
+        Click the bottom sure button to enable button animation
       </el-button>
     </el-space>
   </el-card>

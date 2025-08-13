@@ -4,11 +4,11 @@ import { message } from "@/utils/message";
 import { FormInstance } from "element-plus";
 
 const SELECT_OPTIONS = [
-  { label: "网关", value: 1 },
-  { label: "人工智能", value: 2 },
-  { label: "CVM", value: 3 },
-  { label: "防火墙", value: 4 },
-  { label: "未知", value: 5 }
+  { label: "Gateway", value: 1 },
+  { label: "Artificial Intelligence", value: 2 },
+  { label: "Cloud Virtual Machine", value: 3 },
+  { label: "Firewall", value: 4 },
+  { label: "Unknown", value: 5 }
 ];
 
 const props = defineProps({
@@ -34,7 +34,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   await formEl.validate(valid => {
     if (valid) {
-      message("提交成功", { type: "success" });
+      message("Submit successfully", { type: "success" });
       formVisible.value = false;
       resetForm(formEl);
     }
@@ -74,46 +74,46 @@ watch(
 );
 
 const rules = {
-  name: [{ required: true, message: "请输入产品名称", trigger: "blur" }]
+  name: [{ required: true, message: "Please enter product name", trigger: "blur" }]
 };
 </script>
 
 <template>
   <el-dialog
     v-model="formVisible"
-    title="新建产品"
+    title="New Product"
     :width="680"
     draggable
     :before-close="closeDialog"
   >
-    <!-- 表单内容 -->
+    <!-- Form content -->
     <el-form
       ref="ruleFormRef"
       :model="formData"
       :rules="rules"
       label-width="100px"
     >
-      <el-form-item label="产品名称" prop="name">
+      <el-form-item label="Product Name" prop="name">
         <el-input
           v-model="formData.name"
           :style="{ width: '480px' }"
-          placeholder="请输入产品名称"
+          placeholder="Please enter product name"
         />
       </el-form-item>
-      <el-form-item label="产品状态" prop="status">
+      <el-form-item label="Product Status" prop="status">
         <el-radio-group v-model="formData.status">
-          <el-radio value="0">已停用</el-radio>
-          <el-radio value="1">已启用</el-radio>
+          <el-radio value="0">Disabled</el-radio>
+          <el-radio value="1">Enabled</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="产品描述" prop="description">
+      <el-form-item label="Product Description" prop="description">
         <el-input
           v-model="formData.description"
           :style="{ width: '480px' }"
-          placeholder="请输入产品描述"
+          placeholder="Please enter product description"
         />
       </el-form-item>
-      <el-form-item label="产品类型" prop="type">
+      <el-form-item label="Product Type" prop="type">
         <el-select
           v-model="formData.type"
           clearable
@@ -129,19 +129,19 @@ const rules = {
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="备注" prop="mark">
+      <el-form-item label="Remarks" prop="mark">
         <el-input
           v-model="textareaValue"
           type="textarea"
           :style="{ width: '480px' }"
-          placeholder="请输入内容"
+          placeholder="Please enter content"
         />
       </el-form-item>
     </el-form>
     <template #footer>
-      <el-button @click="closeDialog">取消</el-button>
+      <el-button @click="closeDialog">Cancel</el-button>
       <el-button type="primary" @click="submitForm(ruleFormRef)">
-        确定
+        Confirm
       </el-button>
     </template>
   </el-dialog>

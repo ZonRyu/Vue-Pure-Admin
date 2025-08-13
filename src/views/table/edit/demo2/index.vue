@@ -29,7 +29,7 @@ const { editMap, columns, dataList, onEdit, onSave, onCancel } = useColumns();
           type="primary"
           @click="onEdit(row, index)"
         >
-          修改
+          Edit
         </el-button>
         <div v-else>
           <el-button
@@ -38,10 +38,10 @@ const { editMap, columns, dataList, onEdit, onSave, onCancel } = useColumns();
             type="primary"
             @click="onSave(index)"
           >
-            保存
+            Save
           </el-button>
           <el-button class="reset-margin" link @click="onCancel(index)">
-            取消
+            Cancel
           </el-button>
         </div>
       </template>

@@ -31,13 +31,13 @@ const handleChange = (val: string[]) => {
         <el-space wrap :size="40">
           <el-link
             v-tippy="{
-              content: '点击查看详细文档'
+              content: 'Click to view detailed documentation'
             }"
             href="https://element-plus.org/zh-CN/component/collapse.html"
             target="_blank"
             style="font-size: 16px; font-weight: 800"
           >
-            折叠面板
+            Collapse panel
           </el-link>
         </el-space>
       </div>
@@ -46,17 +46,17 @@ const handleChange = (val: string[]) => {
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/collapse.vue"
         target="_blank"
       >
-        代码位置 src/views/components/collapse.vue
+        Code location src/views/components/collapse.vue
       </el-link>
     </template>
 
-    <div class="mb-2">基础用法</div>
+    <div class="mb-2">Basic usage</div>
     <el-radio-group v-model="radio" class="mb-3">
-      <el-radio value="">可同时展开多个面板</el-radio>
-      <el-radio value="accordion">每次只能展开一个面板</el-radio>
+      <el-radio value="">Multiple panels can be expanded at the same time</el-radio>
+      <el-radio value="accordion">Only one panel can be expanded at a time</el-radio>
     </el-radio-group>
     <el-button size="small" text bg class="ml-8! mb-1!" @click="onClick">
-      外部触发打开、关闭
+      External trigger open, close
     </el-button>
     <el-collapse
       ref="collapseRef"
@@ -65,28 +65,28 @@ const handleChange = (val: string[]) => {
       :accordion="radio === 'accordion' ? true : false"
       @change="handleChange"
     >
-      <el-collapse-item title="周一" name="1">
-        周一启航，新的篇章
+      <el-collapse-item title="Monday" name="1">
+        Monday departure, new chapter
       </el-collapse-item>
-      <el-collapse-item title="周二" name="2">
-        周二律动，携手共进
+      <el-collapse-item title="Tuesday" name="2">
+        Tuesday rhythm,携手共进
       </el-collapse-item>
-      <el-collapse-item title="周三" name="3">
-        周三昂扬，激情不减
+      <el-collapse-item title="Wednesday" name="3">
+        Wednesday enthusiasm, passion never fades
       </el-collapse-item>
-      <el-collapse-item title="周四" name="4">
-        周四精进，事半功倍
+      <el-collapse-item title="Thursday" name="4">
+        Thursday progress,事半功倍
       </el-collapse-item>
       <el-collapse-item name="5">
         <template #title>
-          周五
+          Friday
           <IconifyIconOnline
             icon="streamline-emojis:beaming-face-with-smiling-eyes"
             class="ml-1"
             width="30"
           />
         </template>
-        周五喜悦，收尾归档
+        Friday joy,收尾归档
       </el-collapse-item>
     </el-collapse>
   </el-card>

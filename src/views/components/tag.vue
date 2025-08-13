@@ -40,7 +40,7 @@ function onReset() {
   tagList.value = cloneDeep(copyTagList);
 }
 
-/** 动态编辑标签 */
+/** Dynamic editing tags */
 const inputValue = ref("");
 const dynamicTags = ref(["Tag 1", "Tag 2", "Tag 3"]);
 const inputVisible = ref(false);
@@ -70,18 +70,18 @@ const handleInputConfirm = () => {
         <el-space wrap :size="40">
           <el-link
             v-tippy="{
-              content: '点击查看详细文档'
+              content: 'Click to view detailed documentation'
             }"
             href="https://element-plus.org/zh-CN/component/tag.html"
             target="_blank"
             style="font-size: 16px; font-weight: 800"
           >
-            Tag 标签
+            Tag tag
           </el-link>
           <el-radio-group v-model="size">
-            <el-radio value="large">大尺寸</el-radio>
-            <el-radio value="default">默认尺寸</el-radio>
-            <el-radio value="small">小尺寸</el-radio>
+            <el-radio value="large">Large size</el-radio>
+            <el-radio value="default">Default size</el-radio>
+            <el-radio value="small">Small size</el-radio>
           </el-radio-group>
         </el-space>
       </div>
@@ -90,11 +90,11 @@ const handleInputConfirm = () => {
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/tag.vue"
         target="_blank"
       >
-        代码位置 src/views/components/tag.vue
+        Code location src/views/components/tag.vue
       </el-link>
     </template>
 
-    <div class="mb-2">基础按钮</div>
+    <div class="mb-2">Basic tag</div>
     <el-radio-group v-model="baseTag" class="mb-3">
       <el-radio label="dark" value="dark" />
       <el-radio label="light" value="light" />
@@ -105,10 +105,10 @@ const handleInputConfirm = () => {
       <el-checkbox
         v-if="tagList.length > 0"
         v-model="checked1"
-        label="可移除"
+        label="Removable"
       />
       <el-button v-else size="small" text bg class="mr-6!" @click="onReset">
-        重置
+        Reset
       </el-button>
       <el-button
         v-if="checked1 && tagList.length > 0"
@@ -118,9 +118,9 @@ const handleInputConfirm = () => {
         class="mr-6! ml-4!"
         @click="tagList = []"
       >
-        移除全部
+        Remove all
       </el-button>
-      <el-checkbox v-model="checked2" label="圆形" />
+      <el-checkbox v-model="checked2" label="Circular" />
     </el-space>
     <br />
     <el-space wrap>
@@ -140,7 +140,7 @@ const handleInputConfirm = () => {
     </el-space>
     <el-divider />
 
-    <div class="mb-2">动态编辑标签</div>
+    <div class="mb-2">Dynamic editing tags</div>
     <el-tag
       v-for="tag in dynamicTags"
       :key="tag"
@@ -167,7 +167,7 @@ const handleInputConfirm = () => {
       size="small"
       @click="showInput"
     >
-      新建标签
+      New tag
     </el-button>
   </el-card>
 </template>

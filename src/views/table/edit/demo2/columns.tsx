@@ -8,7 +8,7 @@ export function useColumns() {
 
   const columns: TableColumnList = [
     {
-      label: "姓名",
+      label: "Name",
       prop: "name",
       cellRenderer: ({ row, index }) => (
         <>
@@ -21,7 +21,7 @@ export function useColumns() {
       )
     },
     {
-      label: "性别",
+      label: "Gender",
       prop: "sex",
       cellRenderer: ({ row, index }) => (
         <>
@@ -31,22 +31,22 @@ export function useColumns() {
               inline-prompt
               active-value={0}
               inactive-value={1}
-              active-text="男"
-              inactive-text="女"
+              active-text="Male"
+              inactive-text="Female"
             />
           ) : (
-            <p>{row.sex === 0 ? "男" : "女"}</p>
+            <p>{row.sex === 0 ? "Male" : "Female"}</p>
           )}
         </>
       )
     },
     {
-      label: "爱好",
+      label: "Hobby",
       prop: "hobby",
       cellRenderer: ({ row, index }) => (
         <>
           {editMap.value[index]?.editable ? (
-            <el-select v-model={row.hobby} clearable placeholder="请选择爱好">
+            <el-select v-model={row.hobby} clearable placeholder="Select hobby">
               {options.map(item => {
                 return (
                   <el-option
@@ -66,7 +66,7 @@ export function useColumns() {
       )
     },
     {
-      label: "日期",
+      label: "Date",
       prop: "date",
       cellRenderer: ({ row, index }) => (
         <>
@@ -76,7 +76,7 @@ export function useColumns() {
               type="date"
               format="YYYY/MM/DD"
               value-format="YYYY-MM-DD"
-              placeholder="请选择日期"
+              placeholder="Select date"
             />
           ) : (
             <p>{row.date}</p>
@@ -86,7 +86,7 @@ export function useColumns() {
       minWidth: 110
     },
     {
-      label: "操作",
+      label: "Operation",
       fixed: "right",
       slot: "operation"
     }

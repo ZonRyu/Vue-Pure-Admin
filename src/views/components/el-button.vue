@@ -59,7 +59,7 @@ watch(size, val =>
         <el-space wrap :size="40">
           <el-link
             v-tippy="{
-              content: '点击查看详细文档'
+              content: 'Click to view detailed documentation'
             }"
             href="https://element-plus.org/zh-CN/component/button.html"
             target="_blank"
@@ -68,10 +68,10 @@ watch(size, val =>
             Button 按钮
           </el-link>
           <el-radio-group v-model="size">
-            <el-radio value="large">大尺寸</el-radio>
-            <el-radio value="default">默认尺寸</el-radio>
-            <el-radio value="small">小尺寸</el-radio>
-            <el-radio value="disabled">禁用</el-radio>
+            <el-radio value="large">Large</el-radio>
+            <el-radio value="default">Default</el-radio>
+            <el-radio value="small">Small</el-radio>
+            <el-radio value="disabled">Disabled</el-radio>
           </el-radio-group>
         </el-space>
       </div>
@@ -80,11 +80,11 @@ watch(size, val =>
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/el-button.vue"
         target="_blank"
       >
-        代码位置 src/views/components/el-button.vue
+        Code location src/views/components/el-button.vue
       </el-link>
     </template>
 
-    <div class="mb-2">基础按钮</div>
+    <div class="mb-2">Basic button</div>
     <el-radio-group v-model="baseRadio" class="mb-3">
       <el-radio label="default" value="default" />
       <el-radio label="plain" value="plain" />
@@ -117,7 +117,7 @@ watch(size, val =>
     </el-space>
     <el-divider />
 
-    <div class="mb-4">加载状态按钮</div>
+    <div class="mb-4">Loading state button</div>
     <el-button
       text
       bg
@@ -126,7 +126,7 @@ watch(size, val =>
       :disabled="size === 'disabled'"
       :loading="size !== 'disabled'"
     >
-      {{ size === "disabled" ? "停止加载" : "加载中" }}
+      {{ size === "disabled" ? "Stop loading" : "Loading" }}
     </el-button>
     <el-button
       type="primary"
@@ -136,7 +136,7 @@ watch(size, val =>
       :loading-icon="useRenderIcon('ep:eleme')"
       :loading="size !== 'disabled'"
     >
-      {{ size === "disabled" ? "停止加载" : "加载中" }}
+      {{ size === "disabled" ? "Stop loading" : "Loading" }}
     </el-button>
     <el-button
       type="primary"
@@ -162,13 +162,13 @@ watch(size, val =>
           </svg>
         </div>
       </template>
-      {{ size === "disabled" ? "停止加载" : "加载中" }}
+      {{ size === "disabled" ? "Stop loading" : "Loading" }}
     </el-button>
     <el-divider />
 
-    <div class="mb-4">自定义元素标签。例如：按钮、div、链接</div>
+    <div class="mb-4">Custom element tag. For example: button, div, link</div>
     <el-button :size="dynamicSize" :disabled="size === 'disabled'">
-      button 标签
+      button tag
     </el-button>
     <el-button
       tag="div"
@@ -177,7 +177,7 @@ watch(size, val =>
       :size="dynamicSize"
       :disabled="size === 'disabled'"
     >
-      div 标签
+      div tag
     </el-button>
     <el-button
       type="primary"
@@ -192,11 +192,11 @@ watch(size, val =>
       :size="dynamicSize"
       :disabled="size === 'disabled'"
     >
-      a 链接
+      a tag
     </el-button>
     <el-divider />
 
-    <div class="mb-4">自定义颜色</div>
+    <div class="mb-4">Custom color</div>
     <el-space wrap>
       <el-button
         color="#626aef"

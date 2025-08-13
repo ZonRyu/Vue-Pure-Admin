@@ -9,117 +9,119 @@ defineOptions({
   name: "Segmented"
 });
 
-/** 基础用法 */
-const value = ref(4); // 必须为number类型
+/** Basic Usage */
+const value = ref(4); // Must be of number type
 const size = ref("default");
 const dynamicSize = ref();
 
 const optionsBasis: Array<OptionsType> = [
   {
-    label: "周一"
+    label: "Monday"
   },
   {
-    label: "周二"
+    label: "Tuesday"
   },
   {
-    label: "周三"
+    label: "Wednesday"
   },
   {
-    label: "周四"
+    label: "Thursday"
   },
   {
-    label: "周五"
+    label: "Friday"
   }
 ];
 
-/** tooltip 提示 */
+/** Tooltip */
 const optionsTooltip: Array<OptionsType> = [
   {
-    label: "周一",
-    tip: "周一启航，新的篇章"
+    label: "Monday",
+    tip: "Set sail on Monday, a new chapter begins"
   },
   {
-    label: "周二",
-    tip: "周二律动，携手共进"
+    label: "Tuesday",
+    tip: "On Tuesday we move in rhythm, working hand in hand"
   },
   {
-    label: "周三",
-    tip: "周三昂扬，激情不减"
+    label: "Wednesday",
+    tip: "On Wednesday we stay high-spirited, passion never fades"
   },
   {
-    label: "周四",
-    tip: "周四精进，事半功倍"
+    label: "Thursday",
+    tip: "On Thursday we refine our skills, achieving twice the result with half the effort"
   },
   {
-    label: "周五",
-    tip: "周五喜悦，收尾归档"
+    label: "Friday",
+    tip: "On Friday we rejoice, wrapping up and archiving"
   }
 ];
 
-/** 禁用 */
+/** Disabled */
 const optionsDisabled: Array<OptionsType> = [
   {
-    label: "周一"
+    label: "Monday"
   },
   {
-    label: "周二"
+    label: "Tuesday"
   },
   {
-    label: "周三",
+    label: "Wednesday",
     disabled: true
   },
   {
-    label: "周四"
+    label: "Thursday"
   },
   {
-    label: "周五",
+    label: "Friday",
     disabled: true
   }
 ];
 
-/** block */
+/** Block */
 const optionsBlock: Array<OptionsType> = [
   {
-    label: "周一"
+    label: "Monday"
   },
   {
-    label: "周二"
+    label: "Tuesday"
   },
   {
-    label: "周三"
+    label: "Wednesday"
   },
   {
-    label: "周四"
+    label: "Thursday"
   },
   {
-    label: "周五喜悦，收尾归档，周末倒计时",
-    tip: "周五喜悦，收尾归档，周末倒计时"
+    label: "Friday joy, wrap up and archive, weekend countdown",
+    tip: "Friday joy, wrap up and archive, weekend countdown"
   }
 ];
 
-/** 可设置图标 */
+/** Icon */
 const optionsIcon: Array<OptionsType> = [
   {
-    label: "周一",
+    label: "Monday",
     icon: HomeFilled
   },
   {
-    label: "周二"
-  },
-  {
-    label: "周三",
+    label: "Tuesday",
     icon: "ri:terminal-window-line"
   },
   {
-    label: "周四"
+    label: "Wednesday",
+    icon: "streamline-emojis:cow-face"
   },
   {
-    label: "周五",
+    label: "Thursday",
+    icon: "streamline-emojis:airplane"
+  },
+  {
+    label: "Friday",
     icon: "streamline-emojis:2"
   }
 ];
 
-/** 只设置图标 */
+/** Only Icon */
 const optionsOnlyIcon: Array<OptionsType> = [
   {
     icon: HomeFilled
@@ -138,7 +140,7 @@ const optionsOnlyIcon: Array<OptionsType> = [
   }
 ];
 
-/** 自定义渲染 */
+/** Custom Render */
 const optionsLabel: Array<OptionsType> = [
   {
     label: () => (
@@ -146,7 +148,7 @@ const optionsLabel: Array<OptionsType> = [
         {h(useRenderIcon(HomeFilled), {
           class: "m-auto mt-1 w-[18px] h-[18px]"
         })}
-        <p>周一</p>
+        <p>Monday</p>
       </div>
     )
   },
@@ -156,7 +158,7 @@ const optionsLabel: Array<OptionsType> = [
         {h(useRenderIcon("ri:terminal-window-line"), {
           class: "m-auto mt-1 w-[18px] h-[18px]"
         })}
-        <p>周二</p>
+        <p>Tuesday</p>
       </div>
     )
   },
@@ -166,7 +168,7 @@ const optionsLabel: Array<OptionsType> = [
         {h(useRenderIcon("streamline-emojis:cow-face"), {
           class: "m-auto mt-1 w-[18px] h-[18px]"
         })}
-        <p>周三</p>
+        <p>Wednesday</p>
       </div>
     )
   }
@@ -174,23 +176,23 @@ const optionsLabel: Array<OptionsType> = [
 
 const optionsChange: Array<OptionsType> = [
   {
-    label: "周一",
+    label: "Monday",
     value: 1
   },
   {
-    label: "周二",
+    label: "Tuesday",
     value: 2
   },
   {
-    label: "周三",
+    label: "Wednesday",
     value: 3
   }
 ];
 
-/** change 事件 */
+/** Change Event */
 function onChange({ index, option }) {
   const { label, value } = option;
-  message(`当前选中项索引为：${index}，名字为${label}，值为${value}`, {
+  message(`Current selected item index is: ${index}, name is ${label}, value is ${value}`, {
     type: "success"
   });
 }
@@ -203,11 +205,11 @@ watch(size, val => (dynamicSize.value = size.value));
     <template #header>
       <div class="card-header">
         <el-space wrap :size="40">
-          <span style="font-size: 16px; font-weight: 800"> 分段控制器 </span>
+          <span style="font-size: 16px; font-weight: 800"> Segmented </span>
           <el-radio-group v-model="size">
-            <el-radio value="large">大尺寸</el-radio>
-            <el-radio value="default">默认尺寸</el-radio>
-            <el-radio value="small">小尺寸</el-radio>
+            <el-radio value="large">Large</el-radio>
+            <el-radio value="default">Default</el-radio>
+            <el-radio value="small">Small</el-radio>
           </el-radio-group>
         </el-space>
       </div>
@@ -216,43 +218,43 @@ watch(size, val => (dynamicSize.value = size.value));
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/segmented.vue"
         target="_blank"
       >
-        代码位置 src/views/components/segmented.vue
+        Code location: src/views/components/segmented.vue
       </el-link>
     </template>
     <el-scrollbar>
       <div class="mb-2">
-        基础用法（v-model）<span class="text-primary">
+        Basic Usage (v-model)<span class="text-primary">
           {{ optionsBasis[value].label }}
         </span>
       </div>
       <Segmented v-model="value" :options="optionsBasis" :size="dynamicSize" />
       <el-divider />
-      <div class="mb-2">tooltip 提示</div>
+      <div class="mb-2">Tooltip</div>
       <Segmented :options="optionsTooltip" :size="dynamicSize" />
       <el-divider />
-      <div class="mb-2">change 事件</div>
+      <div class="mb-2">Change Event</div>
       <Segmented
         :options="optionsChange"
         :size="dynamicSize"
         @change="onChange"
       />
       <el-divider />
-      <div class="mb-2">禁用</div>
+      <div class="mb-2">Disabled</div>
       <Segmented :options="optionsDisabled" :size="dynamicSize" />
       <el-divider />
-      <div class="mb-2">全局禁用</div>
+      <div class="mb-2">Global Disable</div>
       <Segmented :options="optionsBasis" :size="dynamicSize" disabled />
       <el-divider />
-      <div class="mb-2">block 属性(将宽度调整为父元素宽度)</div>
+      <div class="mb-2">Block</div>
       <Segmented :options="optionsBlock" block :size="dynamicSize" />
       <el-divider />
-      <div class="mb-2">可设置图标</div>
+      <div class="mb-2">Icon</div>
       <Segmented :options="optionsIcon" :size="dynamicSize" />
       <el-divider />
-      <div class="mb-2">只设置图标</div>
+      <div class="mb-2">Only Icon</div>
       <Segmented :options="optionsOnlyIcon" :size="dynamicSize" />
       <el-divider />
-      <div class="mb-2">自定义渲染</div>
+      <div class="mb-2">Custom Render</div>
       <Segmented :options="optionsLabel" :size="dynamicSize" />
     </el-scrollbar>
   </el-card>

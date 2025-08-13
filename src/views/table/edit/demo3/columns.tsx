@@ -31,7 +31,7 @@ export function useColumns() {
 
   const columns: TableColumnList = [
     {
-      label: "姓名（可修改）",
+      label: "Name (editable)",
       prop: "name",
       cellRenderer: ({ row, index }) => (
         <div
@@ -61,7 +61,7 @@ export function useColumns() {
       )
     },
     {
-      label: "地址",
+      label: "Address",
       prop: "address"
     }
   ];

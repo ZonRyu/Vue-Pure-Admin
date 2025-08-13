@@ -29,30 +29,30 @@ const srcList = Array.from({ length: 3 }).map((_, index) => {
   return getImgUrl(index + 1);
 });
 
-/** 上传文件前校验 */
+/** Before uploading files */
 const onBefore = file => {
   if (!["image/jpeg", "image/png", "image/gif"].includes(file.type)) {
-    message("只能上传图片");
+    message("Only image files are allowed");
     return false;
   }
   const isExceed = file.size / 1024 / 1024 > 2;
   if (isExceed) {
-    message(`单个图片大小不能超过2MB`);
+    message(`Single image size cannot exceed 2MB`);
     return false;
   }
 };
 
-/** 超出最大上传数时触发 */
+/** When the number of uploaded files exceeds the maximum limit */
 const onExceed = () => {
-  message("最多上传3张图片，请先删除在上传");
+  message("Maximum of 3 images allowed, please delete some before uploading more");
 };
 
-/** 移除上传的文件 */
+/** Remove uploaded files */
 const handleRemove = (file: UploadFile) => {
   fileList.value.splice(fileList.value.indexOf(file), 1);
 };
 
-/** 大图预览 */
+/** Preview large image */
 const handlePictureCardPreview = (file: UploadFile) => {
   curOpenImgIndex.value = fileList.value.findIndex(img => img.uid === file.uid);
   dialogVisible.value = true;
@@ -60,7 +60,7 @@ const handlePictureCardPreview = (file: UploadFile) => {
 
 const getUploadItem = () => document.querySelectorAll("#pure-upload-item");
 
-/** 缩略图拖拽排序 */
+/** Thumbnail drag sorting */
 const imgDrop = uid => {
   const CLASSNAME = "el-upload-list";
   const _curIndex = fileList.value.findIndex(img => img.uid === uid);
@@ -80,12 +80,12 @@ const imgDrop = uid => {
   });
 };
 
-/** 下载图片 */
+/** Download images */
 const onDownload = () => {
   [
-    { name: "巴旦木.jpeg", type: "img" },
-    { name: "恭喜发财.png", type: "img" },
-    { name: "可爱动物.gif", type: "gif" },
+    { name: "almond.jpeg", type: "img" },
+    { name: "congratulations.png", type: "img" },
+    { name: "cute-animal.gif", type: "gif" },
     { name: "pure-upload.csv", type: "other" },
     { name: "pure-upload.txt", type: "other" }
   ].forEach(img => {
@@ -106,13 +106,13 @@ const onDownload = () => {
       <div class="card-header">
         <el-link
           v-tippy="{
-            content: '点击查看详细文档'
+            content: 'Click to view detailed documentation'
           }"
           href="https://element-plus.org/zh-CN/component/upload.html"
           target="_blank"
           style="font-size: 16px; font-weight: 800"
         >
-          文件上传
+          File Upload
         </el-link>
       </div>
       <el-link
@@ -120,17 +120,18 @@ const onDownload = () => {
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/upload"
         target="_blank"
       >
-        代码位置 src/views/components/upload
+        Code location: src/views/components/upload
       </el-link>
     </template>
 
     <el-button class="mb-4!" text bg @click="onDownload">
-      点击下载安全文件进行上传测试
+      Click to download safe files for upload testing
     </el-button>
     <p class="mb-4!">
-      综合示例<span class="text-[14px]">
-        （ <span class="text-[red]">自动上传</span>
-        、拖拽上传、拖拽排序、设置请求头、上传进度、大图预览、多选文件、最大文件数量、文件类型限制、文件大小限制、删除文件）
+      Comprehensive example<span class="text-[14px]">
+        ( <span class="text-[red]">Auto upload</span>,
+        drag-to-upload, drag-to-sort, set request headers, upload progress, large image preview,
+        multiple file selection, maximum file count, file type restrictions, file size limits, delete files)
       </span>
     </p>
     <p v-show="fileList.length > 0" class="mb-4!">
@@ -155,7 +156,7 @@ const onDownload = () => {
           v-if="file.status == 'ready' || file.status == 'uploading'"
           class="mt-[35%]! m-auto"
         >
-          <p class="font-medium">文件上传中</p>
+          <p class="font-medium">Uploading file</p>
           <el-progress
             class="mt-2!"
             :stroke-width="2"
@@ -177,7 +178,7 @@ const onDownload = () => {
             ]"
           >
             <span
-              title="查看"
+              title="View"
               class="hover:text-primary"
               @click="handlePictureCardPreview(file)"
             >
@@ -201,7 +202,7 @@ const onDownload = () => {
         </div>
       </template>
     </el-upload>
-    <!-- 有时文档没写并不代表没有，多看源码好处多多😝 https://github.com/element-plus/element-plus/tree/dev/packages/components/image-viewer/src （emm...这让我想起刚开始写这个项目时，很多东西只有英文或者没有文档，需要看源码时，想笑🥹。那些美好时光都给这些坑了，giao） -->
+    <!-- Sometimes the documentation may not be written, but it doesn't mean it's not there. Reading the source code is very beneficial. https://github.com/element-plus/element-plus/tree/dev/packages/components/image-viewer/src (emm... This reminds me of when I started this project, many things were only in English or without documentation, and when I needed to read the source code, I wanted to laugh🥹. Those美好时光都给这些坑了，giao） -->
     <el-image-viewer
       v-if="dialogVisible"
       :initialIndex="curOpenImgIndex"
@@ -212,7 +213,7 @@ const onDownload = () => {
       @close="dialogVisible = false"
       @switch="index => (curOpenImgIndex = index)"
     />
-    <!-- 将自定义内容插入到body里，有了它在图片预览的时候，想插入个分页器或者别的东东在预览区某个位置就很方便咯（用户需求可以很灵活，开源组件库几乎不可能尽善尽美，很多时候寻找别的解决途径或许更好） -->
+    <!-- Insert custom content into the body, which makes it convenient to insert a pager or other elements at a specific position in the preview area when previewing images (user needs can be very flexible, open source component libraries are almost impossible to be perfect, and often finding other solutions is better) -->
     <teleport to="body">
       <div
         v-if="fileList[curOpenImgIndex] && dialogVisible"
@@ -228,20 +229,20 @@ const onDownload = () => {
       </div>
     </teleport>
     <p class="el-upload__tip">
-      可拖拽上传最多3张单个不超过2MB且格式为jpeg/png/gif的图片
+      Drag and drop up to 3 images in jpeg/png/gif format, each no larger than 2MB
     </p>
     <el-divider />
 
     <p class="my-4!">
-      结合表单校验进行<span class="text-[red]">手动上传</span>
+      <span class="text-[red]">Manual upload</span> with form validation
       <span class="text-[14px]">
-        （可先打开浏览器控制台找到Network，然后填写表单内容后点击点提交观察请求变化）
+        (You can open browser console to Network tab, fill in the form and click submit to observe the request changes)
       </span>
     </p>
     <div class="flex justify-between">
       <UploadForm />
       <div>
-        <p class="text-center">上传接口相关截图</p>
+        <p class="text-center">Upload interface related screenshots</p>
         <el-image
           class="w-[200px] rounded-md"
           :src="srcList[0]"
@@ -254,17 +255,17 @@ const onDownload = () => {
 
     <div class="flex flex-wrap">
       <p>
-        裁剪、上传头像请参考
+        Crop and upload avatar please refer to
         <span
           class="font-bold text-[18x] cursor-pointer hover:text-[red]"
           @click="router.push({ name: 'SystemUser' })"
         >
-          系统管理-用户管理
+          System Management - User Management
         </span>
-        表格操作栏中的上传头像功能
+        table operation bar upload avatar function
       </p>
       <p class="text-[red] text-[12px] flex flex-auto items-center justify-end">
-        免责声明：上传接口使用免费开源的
+        Disclaimer: The upload interface uses free open source
         <el-link
           href="https://designer.mocky.io/"
           target="_blank"
@@ -272,8 +273,8 @@ const onDownload = () => {
         >
           &nbsp;Mocky&nbsp;
         </el-link>
-        <span class="font-bold text-[18x]"> 请不要上传重要信息 </span
-        >，如果造成任何损失，我们概不负责
+        <span class="font-bold text-[18x]"> Do not upload important information </span
+        >, if any loss is caused, we will not be responsible
       </p>
     </div>
   </el-card>
@@ -309,8 +310,8 @@ const onDownload = () => {
   border-radius: 22px;
   transform: translateX(-50%);
 
-  /** 将下面的 left: 50%; bottom: 80px; transform: translateX(-50%); 注释掉
-   *  解开下面 left: 40px; top: 40px; 注释，体验不一样的感觉。啊？还是差强人意，自己调整位置吧🥹
+  /** Comment out the left: 50%; bottom: 80px; transform: translateX(-50%); below
+   *  Uncomment the left: 40px; top: 40px; below to experience a different feel. Ah? Still not up to the mark, adjust the position yourself🥹
    */
   // left: 40px;
   // top: 40px;

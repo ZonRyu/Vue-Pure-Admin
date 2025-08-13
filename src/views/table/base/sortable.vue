@@ -3,18 +3,18 @@ import { tableDataSortable } from "./data";
 
 const columns: TableColumnList = [
   {
-    label: "日期",
+    label: "Date",
     prop: "date",
     sortable: true
   },
   {
-    label: "姓名",
+    label: "Name",
     prop: "name"
   },
   {
-    label: "地址",
+    label: "Address",
     prop: "address",
-    formatter: ({ address }) => `格式化后的内容：${address}`
+    formatter: ({ address }) => `Formatted content: ${address}`
   }
 ];
 </script>

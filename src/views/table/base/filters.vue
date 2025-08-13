@@ -23,7 +23,7 @@ const filterHandler = (value, row, column) => {
 
 const columns: TableColumnList = [
   {
-    label: "日期",
+    label: "Date",
     prop: "date",
     sortable: true,
     columnKey: "date",
@@ -36,15 +36,15 @@ const columns: TableColumnList = [
     filterMethod: filterHandler
   },
   {
-    label: "姓名",
+    label: "Name",
     prop: "name"
   },
   {
-    label: "地址",
+    label: "Address",
     prop: "address"
   },
   {
-    label: "标签",
+    label: "Tag",
     prop: "tag",
     filters: [
       { text: "Home", value: "Home" },

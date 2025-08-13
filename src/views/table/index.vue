@@ -18,7 +18,7 @@ function tabClick({ index }) {
     <template #header>
       <div class="card-header">
         <span class="font-medium">
-          二次封装 Element Plus 的
+          A secondary wrapper for Element Plus's
           <el-link
             href="https://element-plus.org/zh-CN/component/table.html"
             target="_blank"
@@ -26,14 +26,13 @@ function tabClick({ index }) {
           >
             el-table
           </el-link>
-          完全兼容 api 并提供灵活的配置项以及完善的类型提示，不用将代码都写在
-          template 里了
+          Fully compatible API with flexible configuration options and comprehensive type hints, no need to write all the code in the template anymore.
           <el-link
             href="https://github.com/pure-admin/pure-admin-table"
             target="_blank"
             style="margin: 0 4px 5px; font-size: 16px"
           >
-            @pureadmin/table 源码
+            @pureadmin/table Source Code
           </el-link>
         </span>
       </div>
@@ -42,13 +41,12 @@ function tabClick({ index }) {
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/table/base"
         target="_blank"
       >
-        代码位置 src/views/table/base
+        Code location: src/views/table/base
       </el-link>
     </template>
 
     <el-alert
-      title="基础用法中大部分表格都没设置 row-key ，不过最好都设置一下，后端需返回唯一值的字段，比如id。作用：1. 用来优化 Table
-      的渲染，尤其当字段在深层结构中；2. 防止某些操作导致表格组件内部混乱"
+      title="Most tables in basic usage don't have row-key set, but it's best to set it. The backend should return a field with unique values, such as id. Purpose: 1. To optimize Table rendering, especially when fields are in deep structures; 2. To prevent certain operations from causing internal confusion in table components"
       type="info"
       :closable="false"
     />
@@ -60,7 +58,7 @@ function tabClick({ index }) {
             <span
               v-tippy="{
                 maxWidth: 'none',
-                content: `（第 ${index + 1} 个示例）${item.content}`
+                content: `(Example ${index + 1}) ${item.content}`
               }"
             >
               {{ item.title }}

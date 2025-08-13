@@ -35,7 +35,7 @@ const { columns, dataList, onAdd, onDel } = useColumns();
           :icon="useRenderIcon(AddFill)"
           @click="onAdd"
         >
-          添加一行数据
+          Add a row of data
         </el-button>
       </template>
       <template #operation="{ row }">

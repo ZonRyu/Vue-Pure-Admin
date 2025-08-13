@@ -9,9 +9,9 @@ const loading = ref(true);
 const tableData = ref([]);
 
 const columns = [
-  { type: "seq", field: "seq", title: "序号", width: 200, treeNode: true },
+  { type: "seq", field: "seq", title: "Number", width: 200, treeNode: true },
   { field: "id", title: "Id" },
-  { field: "name", title: "地点" }
+  { field: "name", title: "Location" }
 ];
 
 async function onSearch() {
@@ -28,7 +28,7 @@ onSearch();
 <template>
   <VxeTableBar
     tree
-    title="虚拟树形表格"
+    title="Virtual tree table"
     :isExpandAll="false"
     :vxeTableRef="vxeTableRef"
     :columns="columns"

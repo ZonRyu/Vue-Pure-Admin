@@ -1,7 +1,7 @@
 /**
- * @description 提取菜单树中的每一项uniqueId
- * @param tree 树
- * @returns 每一项uniqueId组成的数组
+ * @description Extract each uniqueId from the menu tree
+ * @param tree The tree structure
+ * @returns Array of all uniqueIds
  */
 export const extractPathList = (tree: any[]): any => {
   if (!Array.isArray(tree)) {
@@ -21,10 +21,10 @@ export const extractPathList = (tree: any[]): any => {
 };
 
 /**
- * @description 如果父级下children的length为1，删除children并自动组建唯一uniqueId
- * @param tree 树
- * @param pathList 每一项的id组成的数组
- * @returns 组件唯一uniqueId后的树
+ * @description If a parent has only one child, remove the children and automatically build a uniqueId
+ * @param tree The tree structure
+ * @param pathList Array of IDs for each item
+ * @returns Tree with uniqueIds built
  */
 export const deleteChildren = (tree: any[], pathList = []): any => {
   if (!Array.isArray(tree)) {
@@ -48,10 +48,10 @@ export const deleteChildren = (tree: any[], pathList = []): any => {
 };
 
 /**
- * @description 创建层级关系
- * @param tree 树
- * @param pathList 每一项的id组成的数组
- * @returns 创建层级关系后的树
+ * @description Create hierarchical relationships
+ * @param tree The tree structure
+ * @param pathList Array of IDs for each item
+ * @returns Tree with hierarchical relationships created
  */
 export const buildHierarchyTree = (tree: any[], pathList = []): any => {
   if (!Array.isArray(tree)) {
@@ -72,10 +72,10 @@ export const buildHierarchyTree = (tree: any[], pathList = []): any => {
 };
 
 /**
- * @description 广度优先遍历，根据唯一uniqueId找当前节点信息
- * @param tree 树
- * @param uniqueId 唯一uniqueId
- * @returns 当前节点信息
+ * @description Breadth-first traversal to find current node information by uniqueId
+ * @param tree The tree structure
+ * @param uniqueId Unique identifier
+ * @returns Current node information
  */
 export const getNodeByUniqueId = (
   tree: any[],
@@ -96,11 +96,11 @@ export const getNodeByUniqueId = (
 };
 
 /**
- * @description 向当前唯一uniqueId节点中追加字段
- * @param tree 树
- * @param uniqueId 唯一uniqueId
- * @param fields 需要追加的字段
- * @returns 追加字段后的树
+ * @description Append fields to the node with the specified uniqueId
+ * @param tree The tree structure
+ * @param uniqueId Unique identifier of the target node
+ * @param fields Fields to be appended
+ * @returns Tree with fields appended to the target node
  */
 export const appendFieldByUniqueId = (
   tree: any[],
@@ -127,12 +127,12 @@ export const appendFieldByUniqueId = (
 };
 
 /**
- * @description 构造树型结构数据
- * @param data 数据源
- * @param id id字段 默认id
- * @param parentId 父节点字段，默认parentId
- * @param children 子节点字段，默认children
- * @returns 追加字段后的树
+ * @description Construct tree structure data
+ * @param data Data source array
+ * @param id Field name for node ID (default: 'id')
+ * @param parentId Field name for parent node reference (default: 'parentId')
+ * @param children Field name for children array (default: 'children')
+ * @returns Tree structure with parent-child relationships established
  */
 export const handleTree = (
   data: any[],

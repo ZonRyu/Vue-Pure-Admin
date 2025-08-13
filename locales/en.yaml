@@ -1,16 +1,16 @@
 buttons:
   pureAccountSettings: Account
-  pureLoginOut: LoginOut
+  pureLoginOut: Logout
   pureLogin: Login
   pureOpenSystemSet: Open System Configs
   pureReload: Reload
-  pureCloseCurrentTab: Close CurrentTab
-  pureCloseLeftTabs: Close LeftTabs
-  pureCloseRightTabs: Close RightTabs
-  pureCloseOtherTabs: Close OtherTabs
-  pureCloseAllTabs: Close AllTabs
-  pureContentFullScreen: Content FullScreen
-  pureContentExitFullScreen: Content ExitFullScreen
+  pureCloseCurrentTab: Close Current Tab
+  pureCloseLeftTabs: Close Left Tabs
+  pureCloseRightTabs: Close Right Tabs
+  pureCloseOtherTabs: Close Other Tabs
+  pureCloseAllTabs: Close All Tabs
+  pureContentFullScreen: Full Screen
+  pureContentExitFullScreen: Exit Full Screen
   pureClickCollapse: Collapse
   pureClickExpand: Expand
   pureConfirm: Confirm
@@ -23,44 +23,44 @@ search:
   pureTotal: Total
   pureHistory: History
   pureCollect: Collect
-  pureDragSort: （Drag Sort）
+  pureDragSort: (Drag to sort)
   pureEmpty: Empty
-  purePlaceholder: Search Menu
+  purePlaceholder: Search menu (supports Pinyin)
 panel:
-  pureSystemSet: System Configs
-  pureCloseSystemSet: Close System Configs
-  pureClearCacheAndToLogin: Clear cache and return to login page
-  pureClearCache: Clear Cache
-  pureOverallStyle: Overall Style
+  pureSystemSet: System Settings
+  pureCloseSystemSet: Close Settings
+  pureClearCacheAndToLogin: Clear cache and return to login
+  pureClearCache: Clear cache
+  pureOverallStyle: Theme
   pureOverallStyleLight: Light
-  pureOverallStyleLightTip: Set sail freshly and light up the comfortable work interface
+  pureOverallStyleLightTip: Fresh and bright theme for comfortable work
   pureOverallStyleDark: Dark
-  pureOverallStyleDarkTip: Moonlight Overture, indulge in the tranquility and elegance of the night
+  pureDarkMode: Dark Mode
   pureOverallStyleSystem: Auto
-  pureOverallStyleSystemTip: Synchronize time, the interface naturally responds to morning and dusk
-  pureThemeColor: Theme Color
-  pureLayoutModel: Layout Model
-  pureVerticalTip: The menu on the left is familiar and friendly
-  pureHorizontalTip: Top menu, concise overview
-  pureMixTip: Mixed menu, flexible
-  pureStretch: Stretch Page
+  pureSystemTheme: System Default
+  pureThemeColor: Primary Color
+  pureLayoutModel: Navigation Mode
+  pureVertical: Vertical
+  pureHorizontal: Horizontal
+  pureMix: Mixed
+  pureStretch: Page Width
   pureStretchFixed: Fixed
-  pureStretchFixedTip: Compact pages make it easy to find the information you need
+  pureStretchFixedTip: Fixed width for better readability
   pureStretchCustom: Custom
-  pureStretchCustomTip: Minimum 1280, maximum 1600
-  pureTagsStyle: Tags Style
+  pureStretchCustomTip: Custom width (1280px to 1600px)
+  pureTagsStyle: Tab Style
   pureTagsStyleSmart: Smart
-  pureTagsStyleSmartTip: Smart tags add fun and brilliance
+  pureTagsStyleSmartTip: Dynamic tab style with visual feedback
   pureTagsStyleCard: Card
-  pureTagsStyleCardTip: Card tags for efficient browsing
+  pureTagsStyleCardTip: Card-style tabs for better organization
   pureTagsStyleChrome: Chrome
-  pureTagsStyleChromeTip: Chrome style is classic and elegant
-  pureInterfaceDisplay: Interface Display
-  pureGreyModel: Grey Model
-  pureWeakModel: Weak Model
-  pureHiddenTags: Hidden Tags
-  pureHiddenFooter: Hidden Footer
-  pureMultiTagsCache: MultiTags Cache
+  pureTagsStyleChromeTip: Chrome-like tab style
+  pureInterfaceDisplay: Display
+  pureGreyMode: Grayscale Mode
+  pureColorWeaknessMode: Color Weakness Mode
+  pureHiddenTags: Hide Tabs
+  pureHiddenFooter: Hide Footer
+  pureMultiTagsCache: Persist Tabs
 menus:
   pureHome: Home
   pureLogin: Login

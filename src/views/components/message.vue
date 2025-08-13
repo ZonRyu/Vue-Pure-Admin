@@ -14,30 +14,30 @@ defineOptions({
   <el-card shadow="never">
     <template #header>
       <div class="card-header">
-        <span class="font-medium"> 消息提示 </span>
+        <span class="font-medium"> Message Notifications </span>
       </div>
       <el-link
         class="mt-2"
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/message.vue"
         target="_blank"
       >
-        代码位置 src/views/components/message.vue
+        Code location: src/views/components/message.vue
       </el-link>
     </template>
 
-    <h4 class="mb-4!">Element Plus 的消息提示，点击弹出提示信息</h4>
+    <h4 class="mb-4!">Element Plus message notifications, click to show message</h4>
 
     <el-space wrap>
       <el-button
         type="info"
-        @click="message('Info类型消息', { customClass: 'el' })"
+        @click="message('Info message', { customClass: 'el' })"
       >
         Info
       </el-button>
       <el-button
         type="success"
         @click="
-          message('Success类型消息', { customClass: 'el', type: 'success' })
+          message('Success message', { customClass: 'el', type: 'success' })
         "
       >
         Success
@@ -45,54 +45,54 @@ defineOptions({
       <el-button
         type="warning"
         @click="
-          message('Warning类型消息', { customClass: 'el', type: 'warning' })
+          message('Warning message', { customClass: 'el', type: 'warning' })
         "
       >
         Warning
       </el-button>
       <el-button
         type="danger"
-        @click="message('Error类型消息', { customClass: 'el', type: 'error' })"
+        @click="message('Error message', { customClass: 'el', type: 'error' })"
       >
         Error
       </el-button>
       <el-button
-        @click="message('可关闭消息', { customClass: 'el', showClose: true })"
+        @click="message('Closable message', { customClass: 'el', showClose: true })"
       >
-        可关闭
+        Closable
       </el-button>
       <el-button
         @click="
-          message('分组消息合并', {
+          message('Grouped messages', {
             customClass: 'el',
             type: 'success',
             grouping: true
           })
         "
       >
-        分组消息合并
+        Grouped Messages
       </el-button>
       <el-button
         @click="
-          message('自定义消息图标', {
+          message('Custom message icon', {
             customClass: 'el',
             icon: useRenderIcon(Check)
           })
         "
       >
-        自定义图标
+        Custom Icon
       </el-button>
       <el-button
         @click="
-          message('3秒后关闭', {
+          message('3 seconds later close', {
             customClass: 'el',
             duration: 3000,
             onClose: () =>
-              message('消息已关闭', { customClass: 'el', type: 'success' })
+              message('Message closed', { customClass: 'el', type: 'success' })
           })
         "
       >
-        自定义延时关闭时间并设置关闭后其他操作
+        Custom delay close time and set close after other operations
       </el-button>
       <el-button
         @click="
@@ -105,7 +105,7 @@ defineOptions({
           )
         "
       >
-        自定义内容
+        Custom content
       </el-button>
       <el-button
         @click="
@@ -115,64 +115,64 @@ defineOptions({
           })
         "
       >
-        HTML 片段作为正文内容
+        HTML snippet as content
       </el-button>
     </el-space>
 
     <el-divider />
 
     <h4 class="mb-4!">
-      类似 Ant Design 风格的消息提示，点击弹出提示信息（基于 ElMessage
-      样式改版，不会影响 ElMessage
-      原本样式，使用和打包大小成本极低并适配整体暗色风格）
+      Ant Design style message notifications, click to show message (Based on ElMessage
+      restyling, does not affect the original ElMessage
+      styles, with minimal usage and bundle size impact, and supports dark mode)
     </h4>
 
     <el-space wrap>
-      <el-button type="info" @click="message('Info类型消息')">Info</el-button>
+      <el-button type="info" @click="message('Info message')">Info</el-button>
       <el-button
         type="success"
-        @click="message('Success类型消息', { type: 'success' })"
+        @click="message('Success message', { type: 'success' })"
       >
         Success
       </el-button>
       <el-button
         type="warning"
-        @click="message('Warning类型消息', { type: 'warning' })"
+        @click="message('Warning message', { type: 'warning' })"
       >
         Warning
       </el-button>
       <el-button
         type="danger"
-        @click="message('Error类型消息', { type: 'error' })"
+        @click="message('Error message', { type: 'error' })"
       >
         Error
       </el-button>
-      <el-button @click="message('可关闭消息', { showClose: true })">
-        可关闭
+      <el-button @click="message('Closable message', { showClose: true })">
+        Closable
       </el-button>
       <el-button
-        @click="message('分组消息合并', { type: 'success', grouping: true })"
+        @click="message('Grouped messages', { type: 'success', grouping: true })"
       >
-        分组消息合并
+        Grouped Messages
       </el-button>
       <el-button
         @click="
-          message('自定义消息图标', {
+          message('Custom message icon', {
             icon: hot
           })
         "
       >
-        自定义图标
+        Custom Icon
       </el-button>
       <el-button
         @click="
-          message('3秒后关闭', {
+          message('3 seconds later close', {
             duration: 3000,
-            onClose: () => message('消息已关闭', { type: 'success' })
+            onClose: () => message('Message closed', { type: 'success' })
           })
         "
       >
-        自定义延时关闭时间并设置关闭后其他操作
+        Custom delay close time and set close after other operations
       </el-button>
       <el-button
         @click="
@@ -184,7 +184,7 @@ defineOptions({
           )
         "
       >
-        自定义内容
+        Custom content
       </el-button>
       <el-button
         @click="
@@ -193,12 +193,12 @@ defineOptions({
           })
         "
       >
-        HTML 片段作为正文内容
+        HTML snippet as content
       </el-button>
     </el-space>
 
     <el-divider />
 
-    <el-button @click="closeAllMessage"> 关闭所有消息提示 </el-button>
+    <el-button @click="closeAllMessage"> Close All Messages </el-button>
   </el-card>
 </template>

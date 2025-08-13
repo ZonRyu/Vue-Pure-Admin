@@ -10,7 +10,7 @@ const { columns, filterTableData } = useColumns();
     <template #nameHeader>
       <span class="flex items-center">
         <IconifyIconOffline :icon="Calendar" />
-        日期
+        Date
       </span>
     </template>
   </pure-table>

@@ -1,7 +1,7 @@
 import type { Emitter } from "mitt";
 import mitt from "mitt";
 
-/** 全局公共事件需要在此处添加类型 */
+/** Global public events should have their types defined here */
 type Events = {
   openPanel: string;
   tagOnClick: string;

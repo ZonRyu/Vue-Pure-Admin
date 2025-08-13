@@ -2,82 +2,82 @@
   {
     "id": 1,
     "parentId": null,
-    "name": "北京"
+    "name": "Beijing"
   },
   {
     "id": 2,
     "parentId": 1,
-    "name": "北京市"
+    "name": "Beijing City"
   },
   {
     "id": 3,
     "parentId": 2,
-    "name": "东城区"
+    "name": "Dongcheng District"
   },
   {
     "id": 8,
     "parentId": 2,
-    "name": "丰台区"
+    "name": "Fengtai District"
   },
   {
     "id": 16,
     "parentId": 2,
-    "name": "大兴区"
+    "name": "Daxing District"
   },
   {
     "id": 6,
     "parentId": 2,
-    "name": "宣武区"
+    "name": "Xuanwu District"
   },
   {
     "id": 19,
     "parentId": 2,
-    "name": "密云县"
+    "name": "Miyun District"
   },
   {
     "id": 5,
     "parentId": 2,
-    "name": "崇文区"
+    "name": "Chongwen District"
   },
   {
     "id": 18,
     "parentId": 2,
-    "name": "平谷区"
+    "name": "Pinggu District"
   },
   {
     "id": 20,
     "parentId": 2,
-    "name": "延庆县"
+    "name": "Yanqing District"
   },
   {
     "id": 17,
     "parentId": 2,
-    "name": "怀柔区"
+    "name": "Haiyang District"
   },
   {
     "id": 12,
     "parentId": 2,
-    "name": "房山区"
+    "name": "Fangshan District"
   },
   {
     "id": 15,
     "parentId": 2,
-    "name": "昌平区"
+    "name": "Changping District"
   },
   {
     "id": 7,
     "parentId": 2,
-    "name": "朝阳区"
+    "name": "Chaoyang District"
   },
   {
     "id": 10,
     "parentId": 2,
-    "name": "海淀区"
+    "name": "Haidian District"
   },
   {
     "id": 9,
     "parentId": 2,
-    "name": "石景山区"
+    "name": "Shijingshan District"
   },
   {
     "id": 4,

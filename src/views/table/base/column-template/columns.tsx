@@ -6,7 +6,7 @@ import { tableData } from "../data";
 export function useColumns() {
   const columns: TableColumnList = [
     {
-      label: "日期",
+      label: "Date",
       prop: "date",
       cellRenderer: ({ row }) => (
         <div style="display: flex; align-items: center">
@@ -16,7 +16,7 @@ export function useColumns() {
       )
     },
     {
-      label: "姓名",
+      label: "Name",
       prop: "name",
       cellRenderer: ({ row }) => (
         <el-popover effect="light" trigger="hover" placement="top" width="auto">
@@ -33,11 +33,11 @@ export function useColumns() {
       )
     },
     {
-      label: "地址",
+      label: "Address",
       prop: "address"
     },
     {
-      label: "操作",
+      label: "Operation",
       cellRenderer: ({ index, row }) => (
         <>
           <el-button size="small" onClick={() => handleEdit(index + 1, row)}>
@@ -56,13 +56,13 @@ export function useColumns() {
   ];
 
   const handleEdit = (index: number, row) => {
-    message(`您修改了第 ${index} 行，数据为：${JSON.stringify(row)}`, {
+    message(`You modified the ${index} row, data: ${JSON.stringify(row)}`, {
       type: "success"
     });
   };
 
   const handleDelete = (index: number, row) => {
-    message(`您删除了第 ${index} 行，数据为：${JSON.stringify(row)}`);
+    message(`You deleted the ${index} row, data: ${JSON.stringify(row)}`);
   };
 
   return {

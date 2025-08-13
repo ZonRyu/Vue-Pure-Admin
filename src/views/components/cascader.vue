@@ -26,20 +26,20 @@ const handleChange = value => {
 <template>
   <el-card shadow="never">
     <template #header>
-      <p class="font-medium">区域级联选择器</p>
+      <p class="font-medium">Area Cascader</p>
       <el-link
         class="mt-2"
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/cascader.vue"
         target="_blank"
       >
-        代码位置 src/views/components/cascader.vue
+        Code location src/views/components/cascader.vue
       </el-link>
     </template>
     <el-row :gutter="24">
       <el-col :xl="12" :lg="12" :md="24" :sm="24" :xs="24">
         <div class="flex flex-col items-center justify-center">
           <span class="text-[var(--el-color-primary)]">
-            1. 二级联动（不带“全部”选项）
+            1. Two-level联动（without "all" option）
             <el-cascader
               v-model="selectedOptions1"
               :options="provinceAndCityData"
@@ -47,14 +47,13 @@ const handleChange = value => {
             />
           </span>
           <div class="leading-10">
-            <div>绑定值：{{ selectedOptions1 }}</div>
+            <div>Binding value: {{ selectedOptions1 }}</div>
             <div>
-              区域码转汉字：
-              {{ CodeToText[selectedOptions1[0]] }},
+              Area code to Chinese: {{ CodeToText[selectedOptions1[0]] }},
               {{ CodeToText[selectedOptions1[1]] }}
             </div>
             <div>
-              汉字转区域码：
+              Chinese to area code:
               {{
                 convertTextToCode(
                   CodeToText[selectedOptions1[0]],
@@ -68,7 +67,7 @@ const handleChange = value => {
       <el-col :xl="12" :lg="12" :md="24" :sm="24" :xs="24">
         <div class="flex flex-col items-center justify-center mt-3">
           <span class="text-[var(--el-color-primary)]">
-            2. 二级联动（带有“全部”选项）
+            2. Two-level联动（with "all" option）
             <el-cascader
               v-model="selectedOptions3"
               :options="provinceAndCityDataPlus"
@@ -76,14 +75,13 @@ const handleChange = value => {
             />
           </span>
           <div class="leading-10">
-            <div>绑定值：{{ selectedOptions3 }}</div>
+            <div>Binding value: {{ selectedOptions3 }}</div>
             <div>
-              区域码转汉字：
-              {{ CodeToText[selectedOptions3[0]] }},
+              Area code to Chinese: {{ CodeToText[selectedOptions3[0]] }},
               {{ CodeToText[selectedOptions3[1]] }}
             </div>
             <div>
-              汉字转区域码：
+              Chinese to area code:
               {{
                 convertTextToCode(
                   CodeToText[selectedOptions3[0]],
@@ -97,7 +95,7 @@ const handleChange = value => {
       <el-col :xl="12" :lg="12" :md="24" :sm="24" :xs="24">
         <div class="flex flex-col items-center justify-center mt-3">
           <span class="text-[var(--el-color-primary)]">
-            3. 三级联动（不带“全部”选项）
+            3. Three-level联动（without "all" option）
             <el-cascader
               v-model="selectedOptions2"
               :options="regionData"
@@ -105,15 +103,14 @@ const handleChange = value => {
             />
           </span>
           <div class="leading-10">
-            <div>绑定值：{{ selectedOptions2 }}</div>
+            <div>Binding value: {{ selectedOptions2 }}</div>
             <div>
-              区域码转汉字：
-              {{ CodeToText[selectedOptions2[0]] }},
+              Area code to Chinese: {{ CodeToText[selectedOptions2[0]] }},
               {{ CodeToText[selectedOptions2[1]] }},
               {{ CodeToText[selectedOptions2[2]] }}
             </div>
             <div>
-              汉字转区域码：
+              Chinese to area code:
               {{
                 convertTextToCode(
                   CodeToText[selectedOptions2[0]],
@@ -128,7 +125,7 @@ const handleChange = value => {
       <el-col :xl="12" :lg="12" :md="24" :sm="24" :xs="24">
         <div class="flex flex-col items-center justify-center mt-3">
           <span class="text-[var(--el-color-primary)]">
-            4. 三级联动（带"全部选项"）
+            4. Three-level联动（with "all" option）
             <el-cascader
               v-model="selectedOptions4"
               :options="regionDataPlus"
@@ -136,15 +133,14 @@ const handleChange = value => {
             />
           </span>
           <div class="leading-10">
-            <div>绑定值：{{ selectedOptions4 }}</div>
+            <div>Binding value: {{ selectedOptions4 }}</div>
             <div>
-              区域码转汉字：
-              {{ CodeToText[selectedOptions4[0]] }},
+              Area code to Chinese: {{ CodeToText[selectedOptions4[0]] }},
               {{ CodeToText[selectedOptions4[1]] }},
               {{ CodeToText[selectedOptions4[2]] }}
             </div>
             <div>
-              汉字转区域码：
+              Chinese to area code:
               {{
                 convertTextToCode(
                   CodeToText[selectedOptions4[0]],

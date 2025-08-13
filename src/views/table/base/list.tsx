@@ -22,145 +22,145 @@ import NestProp from "./nestProp.vue";
 import ImgPreview from "./imgPreview.vue";
 
 const rendContent = (val: string) =>
-  `代码位置：src/views/table/base/${val}.vue`;
+  `Code location: src/views/table/base/${val}.vue`;
 
 export const list = [
   {
     key: "base",
     content: rendContent("base"),
-    title: "基础表格",
+    title: "Basic table",
     component: Base
   },
   {
     key: "stripe",
     content: rendContent("stripe"),
-    title: "带斑马纹表格",
+    title: "Stripe table",
     component: Stripe
   },
   {
     key: "border",
     content: rendContent("border"),
-    title: "带边框表格",
+    title: "Border table",
     component: Border
   },
   {
     key: "status",
     content: rendContent("status"),
-    title: "带状态表格",
+    title: "Status table",
     component: Status
   },
   {
     key: "fixHeader",
     content: rendContent("fixHeader"),
-    title: "固定表头",
+    title: "Fixed header",
     component: FixHeader
   },
   {
     key: "fixColumn",
     content: rendContent("fixColumn"),
-    title: "固定列",
+    title: "Fixed column",
     component: FixColumn
   },
   {
     key: "fixColumnHeader",
     content: rendContent("fixColumn"),
-    title: "固定列和表头",
+    title: "Fixed column and header",
     component: () => <FixColumn height={"360"} />
   },
   {
     key: "groupHeader",
     content: rendContent("groupHeader"),
-    title: "多级表头（表头分组）",
+    title: "Group header",
     component: GroupHeader
   },
   {
     key: "fluidHeight",
     content: rendContent("fluidHeight"),
-    title: "流体高度",
+    title: "Fluid height",
     component: FluidHeight
   },
   {
     key: "radio",
     content: rendContent("radio"),
-    title: "单选",
+    title: "Radio",
     component: Radio
   },
   {
     key: "multipleChoice",
     content: rendContent("multipleChoice"),
-    title: "多选",
+    title: "Multiple choice",
     component: MultipleChoice
   },
   {
     key: "sortable",
     content: rendContent("sortable"),
-    title: "排序和格式化",
+    title: "Sorting and formatting",
     component: Sortable
   },
   {
     key: "filters",
     content: rendContent("filters"),
-    title: "筛选",
+    title: "Filters",
     component: Filters
   },
   {
     key: "column-template",
     content: rendContent("column-template/index"),
-    title: "自定义列模板",
+    title: "Custom column template",
     component: ColumnTemplate
   },
   {
     key: "header-renderer",
     content: rendContent("header-renderer/index"),
-    title: "自定义表头",
+    title: "Custom header renderer",
     component: HeaderRenderer
   },
   {
     key: "expand",
     content: rendContent("expand"),
-    title: "展开行",
+    title: "Expand row",
     component: Expand
   },
   {
     key: "tree",
     content: rendContent("tree"),
-    title: "树形数据与懒加载",
+    title: "Tree table",
     component: TreeTable
   },
   {
     key: "totalRow",
     content: rendContent("totalRow"),
-    title: "表尾合计行",
+    title: "Total row",
     component: TotalRow
   },
   {
     key: "merge",
     content: rendContent("merge"),
-    title: "合并行或列",
+    title: "Merge row or column",
     component: Merge
   },
   {
     key: "customIndex",
     content: rendContent("customIndex"),
-    title: "自定义索引",
+    title: "Custom index",
     component: CustomIndex
   },
   {
     key: "layout",
     content: rendContent("layout"),
-    title: "表格布局",
+    title: "Table layout",
     component: Layout
   },
   {
     key: "nestProp",
     content: rendContent("nestProp"),
-    title: "多种数据格式（深层结构）",
+    title: "Nest prop",
     component: NestProp
   },
   {
     key: "imgPreview",
     content: rendContent("imgPreview"),
-    title: "图像预览",
+    title: "Image preview",
     component: ImgPreview
   }
 ];

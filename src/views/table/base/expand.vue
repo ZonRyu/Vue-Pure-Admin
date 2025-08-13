@@ -11,11 +11,11 @@ const columns: TableColumnList = [
     slot: "expand"
   },
   {
-    label: "日期",
+    label: "Date",
     prop: "date"
   },
   {
-    label: "姓名",
+    label: "Name",
     prop: "name"
   }
 ];

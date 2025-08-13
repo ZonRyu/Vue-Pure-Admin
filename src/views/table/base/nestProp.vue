@@ -3,19 +3,19 @@ const tableData = [
   {
     userInfo: { name: "Test1", age: 22 },
     other: [
-      { sex: "女" },
+      { sex: "Female" },
       {
         more: {
-          content: '<div><span style="color: red">我是 html 片段</span></div>'
+          content: '<div><span style="color: red">I am an HTML fragment</span></div>'
         }
       }
     ],
-    role: "设计师"
+    role: "Designer"
   },
   {
     userInfo: { name: "Test2", age: 28 },
     other: [
-      { sex: "男" },
+      { sex: "Male" },
       {
         more: {
           content:
@@ -23,12 +23,12 @@ const tableData = [
         }
       }
     ],
-    role: "后端"
+    role: "Backend"
   },
   {
     userInfo: { name: "Test3", age: 20 },
     other: [
-      { sex: "女" },
+      { sex: "Female" },
       {
         more: {
           content:
@@ -36,42 +36,42 @@ const tableData = [
         }
       }
     ],
-    role: "程序员鼓励师"
+    role: "Developer Motivator"
   },
   {
     userInfo: { name: "Test4", age: 26 },
     other: [
-      { sex: "男" },
+      { sex: "Male" },
       {
         more: {
           content:
-            '<a href="https://github.com/xiaoxian521" target="_black">我是链接，点我去 Follow</a>'
+            '<a href="https://github.com/xiaoxian521" target="_black">I am a link, click me to Follow</a>'
         }
       }
     ],
-    role: "前端"
+    role: "Frontend"
   }
 ];
 
 const columns: TableColumnList = [
   {
-    label: "姓名",
+    label: "Name",
     prop: "userInfo.name"
   },
   {
-    label: "性别",
+    label: "Gender",
     prop: "other[0].sex"
   },
   {
-    label: "年龄",
+    label: "Age",
     prop: "userInfo.age"
   },
   {
-    label: "Html片段",
+    label: "Html Fragment",
     slot: "content"
   },
   {
-    label: "角色",
+    label: "Role",
     prop: "role"
   }
 ];

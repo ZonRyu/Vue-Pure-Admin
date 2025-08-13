@@ -7,11 +7,11 @@ defineOptions({
   name: "PureText"
 });
 
-const customContent = ref("自定义tooltip内容");
+const customContent = ref("Custom tooltip content");
 
 const changeTooltipContent = () => {
   customContent.value =
-    "现在的时间是: " + dayjs().format("YYYY-MM-DD HH:mm:ss");
+    "The current time is: " + dayjs().format("YYYY-MM-DD HH:mm:ss");
 };
 </script>
 
@@ -20,7 +20,7 @@ const changeTooltipContent = () => {
     <template #header>
       <div class="card-header">
         <span class="font-medium">
-          文本省略，基于
+          Text truncation, based on
           <el-link
             href="https://element-plus.org/zh-CN/component/text.html"
             target="_blank"
@@ -28,7 +28,7 @@ const changeTooltipContent = () => {
           >
             el-text
           </el-link>
-          和
+          and
           <el-link
             href="https://vue-tippy.netlify.app/basic-usage"
             target="_blank"
@@ -36,7 +36,7 @@ const changeTooltipContent = () => {
           >
             VueTippy
           </el-link>
-          自动省略后显示 Tooltip 提示， 支持多行省略
+          automatically shows a tooltip after truncation, supports multi-line truncation
         </span>
       </div>
       <el-link
@@ -44,19 +44,19 @@ const changeTooltipContent = () => {
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/text.vue"
         target="_blank"
       >
-        代码位置 src/views/components/text.vue
+        Code location: src/views/components/text.vue
       </el-link>
     </template>
 
-    <div class="mb-2">基础用法</div>
+    <div class="mb-2">Basic Usage</div>
     <el-space wrap>
       <ul class="content">
         <li>
           <ReText>
-            测试文本，这是一个稍微有点长的文本，过长省略后，鼠标悬浮会有tooltip提示
+            Test text, this is a slightly long text, when it is too long, it will be truncated after the tooltip is hovered
           </ReText>
           <ReText :lineClamp="2">
-            测试文本，这是一个稍微有点长的文本，lineClamp参数为2，即两行过长省略后，鼠标悬浮会有tooltip提示
+            Test text, this is a slightly long text, lineClamp parameter is 2, that is, when it is too long, it will be truncated after the tooltip is hovered
           </ReText>
         </li>
       </ul>
@@ -64,75 +64,75 @@ const changeTooltipContent = () => {
 
     <el-divider />
 
-    <div class="mb-2">自定义 Tooltip 内容</div>
+    <div class="mb-2">Custom Tooltip Content</div>
     <div class="mb-2">
       <el-button @click="changeTooltipContent">
-        点击切换下方 Tooltip 内容
+        Click to switch the tooltip content below
       </el-button>
     </div>
     <el-space wrap>
       <ul class="content">
         <li>
           <ReText :tippyProps="{ content: customContent }">
-            props写法 -
-            测试文本，这是一个稍微有点长的文本，过长省略后，鼠标悬浮会有tooltip提示
+            Props writing -
+            Test text, this is a slightly long text, when it is too long, it will be truncated after the tooltip is hovered
           </ReText>
         </li>
         <li>
           <ReText>
             <template #content>
               <div>
-                <b>这是插槽写法: </b>
+                <b>This is slot writing: </b>
                 <div>{{ customContent }}</div>
               </div>
             </template>
-            插槽写法 -
-            测试文本，这是一个稍微有点长的文本，过长省略后，鼠标悬浮会有tooltip提示
+            Slot writing -
+            Test text, this is a slightly long text, when it is too long, it will be truncated after the tooltip is hovered
           </ReText>
         </li>
       </ul>
     </el-space>
 
     <el-divider />
-    <div class="mb-2">自定义 el-text 配置</div>
+    <div class="mb-2">Custom el-text configuration</div>
     <el-space wrap>
       <ul class="content">
         <li>
           <ReText type="primary" size="large">
-            测试文本，这是一个稍微有点长的文本，过长省略后，鼠标悬浮会有tooltip提示
+            Test text, this is a slightly long text, when it is too long, it will be truncated after the tooltip is hovered
           </ReText>
         </li>
         <li>
           <ReText :lineClamp="4" type="info">
-            测试文本，这是一个非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长的文本，lineClamp参数为4，即四行过长省略后，鼠标悬浮会有tooltip提示
+            Test text, this is a very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long text, lineClamp parameter is 4, that is, when it is too long, it will be truncated after the tooltip is hovered
           </ReText>
         </li>
       </ul>
     </el-space>
 
     <el-divider />
-    <div class="mb-2">自定义 VueTippy 配置</div>
+    <div class="mb-2">Custom VueTippy configuration</div>
     <el-space wrap>
       <ul class="content">
         <li>
           <ReText
             :tippyProps="{ offset: [0, -20], theme: 'light', arrow: false }"
           >
-            偏移白色无箭头 -
-            测试文本，这是一个稍微有点长的文本，过长省略后，鼠标悬浮会有tooltip提示
+            Offset white arrowless -
+            Test text, this is a slightly long text, when it is too long, it will be truncated after the tooltip is hovered
           </ReText>
         </li>
         <li>
           <ReText :lineClamp="4" :tippyProps="{ followCursor: true }">
-            鼠标跟随 -
-            测试文本，这是一个非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长，非常非常长的文本，lineClamp参数为4，即四行过长省略后，鼠标悬浮会有tooltip提示
+            Mouse following -
+            Test text, this is a very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long, very very long text, lineClamp parameter is 4, that is, when it is too long, it will be truncated after the tooltip is hovered
           </ReText>
         </li>
       </ul>
     </el-space>
 
     <el-divider />
-    <div class="mb-2">组件嵌套: 不需要省略的需设置 truncated 为 false</div>
+    <div class="mb-2">Component Nesting: If you don't need to truncate, set truncated to false</div>
     <el-space wrap>
       <ul class="content">
         <li>

@@ -7,27 +7,27 @@ interface ProvinceData {
   children?: Array<ProvinceData>;
 }
 
-// code转汉字大对象,例：CodeToText['110000']输出北京市
+// Map of codes to English text, e.g., CodeToText['110000'] outputs 'Beijing'
 const CodeToText = {};
-// 汉字转code大对象,例：TextToCode['北京市']['市辖区']['朝阳区'].code输出110105
+// Map of English text to codes, e.g., TextToCode['Beijing']['City District']['Chaoyang District'].code outputs '110105'
 const TextToCode = {};
-// 省份对象
+// Province data object
 const provinceObject = REGION_DATA["86"];
-// 省市区三级联动数据（不带“全部”选项）
+// Three-level region data (province, city, district) without "All" option
 const regionData = [];
-// 省市二级联动数据（不带“全部”选项）
+// Two-level region data (province, city) without "All" option
 let provinceAndCityData = [];
 
-const ALL_TEXT = "全部";
+const ALL_TEXT = "All";
 
 CodeToText[""] = ALL_TEXT;
 
-// 计算省
+// Process provinces
 Object.keys(provinceObject).forEach(prop => {
   const provinceText = provinceObject[prop];
   regionData.push({
-    value: prop, // 省份code值
-    label: provinceText // 省份汉字
+    value: prop, // Province code
+    label: provinceText // Province name in English
   });
   CodeToText[prop] = provinceText;
   TextToCode[provinceText] = {
@@ -38,7 +38,7 @@ Object.keys(provinceObject).forEach(prop => {
   };
 });
 
-// 计算市
+// Process cities
 regionData.forEach((item: ProvinceData) => {
   const provinceCode = item.value;
   const provinceText = item.label;
@@ -65,7 +65,7 @@ regionData.forEach((item: ProvinceData) => {
 });
 provinceAndCityData = cloneDeep(regionData);
 
-// 计算区
+// Process districts
 regionData.forEach((item: ProvinceData) => {
   const province = item.children;
   const provinceText = item.label;
@@ -95,7 +95,7 @@ regionData.forEach((item: ProvinceData) => {
   }
 });
 
-// 添加“全部”选项
+// Add "All" option
 const provinceAndCityDataPlus = cloneDeep(provinceAndCityData);
 provinceAndCityDataPlus.unshift({
   value: "",
@@ -150,11 +150,11 @@ regionDataPlus.forEach((item: ProvinceData) => {
 });
 
 /**
- * 汉字转区域码
- * @param provinceText 省
- * @param cityText 市
- * @param regionText 区
- * @returns
+ * Convert Chinese text to region codes
+ * @param provinceText Province name
+ * @param cityText City name
+ * @param regionText District name
+ * @returns Formatted region code string
  */
 function convertTextToCode(
   provinceText: string,

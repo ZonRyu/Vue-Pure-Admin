@@ -15,16 +15,16 @@ const list1 = ref([]);
 
 const options = [
   {
-    title: "标题一",
+    title: "Title One",
     value: "0",
-    description: "坚持梦想，成就不凡的自己",
+    description: "Hold onto your dreams and achieve extraordinary things",
     avatar:
       "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
   },
   {
-    title: "标题二",
+    title: "Title Two",
     value: "1",
-    description: "每一次努力，都是成长的契机",
+    description: "Every effort is an opportunity for growth",
     avatar:
       "https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg"
   }
@@ -44,19 +44,19 @@ watch(size, val =>
         <el-space wrap :size="40">
           <el-link
             v-tippy="{
-              content: '点击查看详细文档'
+              content: 'Click to view detailed documentation'
             }"
             href="https://plus-pro-components.com/components/check-card-group.html"
             target="_blank"
             style="font-size: 16px; font-weight: 800"
           >
-            多选卡片组
+            Check Card Group
           </el-link>
           <el-radio-group v-model="size">
-            <el-radio value="large">大尺寸</el-radio>
-            <el-radio value="default">默认尺寸</el-radio>
-            <el-radio value="small">小尺寸</el-radio>
-            <el-radio value="disabled">禁用</el-radio>
+            <el-radio value="large">Large</el-radio>
+            <el-radio value="default">Default</el-radio>
+            <el-radio value="small">Small</el-radio>
+            <el-radio value="disabled">Disabled</el-radio>
           </el-radio-group>
         </el-space>
       </div>
@@ -65,11 +65,11 @@ watch(size, val =>
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/check-card.vue"
         target="_blank"
       >
-        代码位置 src/views/components/check-card.vue
+        Code location: src/views/components/check-card.vue
       </el-link>
     </template>
 
-    <div class="mb-2 mt-4">单选</div>
+    <div class="mb-2 mt-4">Single Selection</div>
     <PlusCheckCardGroup
       v-model="list"
       :options="options"
@@ -77,7 +77,7 @@ watch(size, val =>
       :disabled="size === 'disabled'"
     />
 
-    <div class="mb-2 mt-4">多选</div>
+    <div class="mb-2 mt-4">Multiple Selection</div>
     <PlusCheckCardGroup
       v-model="list1"
       :options="options"

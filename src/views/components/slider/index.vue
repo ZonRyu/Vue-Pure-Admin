@@ -19,38 +19,38 @@ defineOptions({
   <el-card shadow="never">
     <template #header>
       <div class="card-header">
-        <p class="font-medium">滑块</p>
+        <p class="font-medium">Slider</p>
         <el-link
           class="mt-2"
           href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/slider/index.vue"
           target="_blank"
         >
-          代码位置 src/views/components/slider/index.vue
+          Code location: src/views/components/slider/index.vue
         </el-link>
       </div>
     </template>
-    <div class="mb-2">基础用法</div>
+    <div class="mb-2">Basic Usage</div>
     <Base />
     <el-divider />
-    <div class="mb-2">离散值</div>
+    <div class="mb-2">Discrete Value</div>
     <Step />
     <el-divider />
-    <div class="mb-2">带有输入框的滑块</div>
+    <div class="mb-2">Slider with Input</div>
     <Input />
     <el-divider />
-    <div class="mb-2">不同尺寸</div>
+    <div class="mb-2">Different Sizes</div>
     <Size />
     <el-divider />
-    <div class="mb-2">位置</div>
+    <div class="mb-2">Position</div>
     <Placement />
     <el-divider />
-    <div class="mb-2">范围选择</div>
+    <div class="mb-2">Range Selection</div>
     <Range />
     <el-divider />
-    <div class="mb-2">垂直模式</div>
+    <div class="mb-2">Vertical Mode</div>
     <Vertical />
     <el-divider />
-    <div class="mb-2">显示标记</div>
+    <div class="mb-2">Display Mark</div>
     <Marks class="mb-6" />
   </el-card>
 </template>

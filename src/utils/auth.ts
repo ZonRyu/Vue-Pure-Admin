@@ -5,51 +5,51 @@ import { storageLocal, isString, isIncludeAllChildren } from "@pureadmin/utils";
 export interface DataInfo<T> {
   /** token */
   accessToken: string;
-  /** `accessToken`的过期时间（时间戳） */
+  /** Expiration time of `accessToken` (timestamp) */
   expires: T;
-  /** 用于调用刷新accessToken的接口时所需的token */
+  /** Token required when calling the refresh accessToken API */
   refreshToken: string;
-  /** 头像 */
+  /** Avatar */
   avatar?: string;
-  /** 用户名 */
+  /** Username */
   username?: string;
-  /** 昵称 */
+  /** Nickname */
   nickname?: string;
-  /** 当前登录用户的角色 */
+  /** Current logged-in user's roles */
   roles?: Array<string>;
-  /** 当前登录用户的按钮级别权限 */
+  /** Current logged-in user's button-level permissions */
   permissions?: Array<string>;
 }
 
 export const userKey = "user-info";
 export const TokenKey = "authorized-token";
 /**
- * 通过`multiple-tabs`是否在`cookie`中，判断用户是否已经登录系统，
- * 从而支持多标签页打开已经登录的系统后无需再登录。
- * 浏览器完全关闭后`multiple-tabs`将自动从`cookie`中销毁，
- * 再次打开浏览器需要重新登录系统
- * */
+ * Determine if the user is already logged in by checking if `multiple-tabs` exists in `cookie`,
+ * which supports opening multiple tabs of the logged-in system without requiring re-login.
+ * After the browser is completely closed, `multiple-tabs` will be automatically removed from `cookie`,
+ * and the user will need to log in again when reopening the browser
+ */
 export const multipleTabsKey = "multiple-tabs";
 
-/** 获取`token` */
+/** Get `token` */
 export function getToken(): DataInfo<number> {
-  // 此处与`TokenKey`相同，此写法解决初始化时`Cookies`中不存在`TokenKey`报错
+  // Same as `TokenKey`, this writing solves the error when `TokenKey` does not exist in `Cookies` during initialization
   return Cookies.get(TokenKey)
     ? JSON.parse(Cookies.get(TokenKey))
     : storageLocal().getItem(userKey);
 }
 
 /**
- * @description 设置`token`以及一些必要信息并采用无感刷新`token`方案
- * 无感刷新：后端返回`accessToken`（访问接口使用的`token`）、`refreshToken`（用于调用刷新`accessToken`的接口时所需的`token`，`refreshToken`的过期时间（比如30天）应大于`accessToken`的过期时间（比如2小时））、`expires`（`accessToken`的过期时间）
- * 将`accessToken`、`expires`、`refreshToken`这三条信息放在key值为authorized-token的cookie里（过期自动销毁）
- * 将`avatar`、`username`、`nickname`、`roles`、`permissions`、`refreshToken`、`expires`这七条信息放在key值为`user-info`的localStorage里（利用`multipleTabsKey`当浏览器完全关闭后自动销毁）
+ * @description Set `token` and some necessary information and adopt a seamless token refresh solution
+ * Seamless refresh: The backend returns `accessToken` (token used to access APIs), `refreshToken` (token required when calling the refresh `accessToken` API, the expiration time of `refreshToken` (e.g., 30 days) should be longer than that of `accessToken` (e.g., 2 hours)), and `expires` (expiration time of `accessToken`)
+ * Store `accessToken`, `expires`, and `refreshToken` in a cookie with key 'authorized-token' (automatically destroyed when expired)
+ * Store `avatar`, `username`, `nickname`, `roles`, `permissions`, `refreshToken`, and `expires` in localStorage with key 'user-info' (automatically destroyed when the browser is completely closed using `multipleTabsKey`)
  */
 export function setToken(data: DataInfo<Date>) {
   let expires = 0;
   const { accessToken, refreshToken } = data;
   const { isRemembered, loginDay } = useUserStoreHook();
-  expires = new Date(data.expires).getTime(); // 如果后端直接设置时间戳，将此处代码改为expires = data.expires，然后把上面的DataInfo<Date>改成DataInfo<number>即可
+  expires = new Date(data.expires).getTime(); // If the backend directly sets a timestamp, change this code to expires = data.expires, and change DataInfo<Date> above to DataInfo<number>
   const cookieString = JSON.stringify({ accessToken, expires, refreshToken });
 
   expires > 0
@@ -115,19 +115,19 @@ export function setToken(data: DataInfo<Date>) {
   }
 }
 
-/** 删除`token`以及key值为`user-info`的localStorage信息 */
+/** Delete `token` and localStorage information with key 'user-info' */
 export function removeToken() {
   Cookies.remove(TokenKey);
   Cookies.remove(multipleTabsKey);
   storageLocal().removeItem(userKey);
 }
 
-/** 格式化token（jwt格式） */
+/** Format token (JWT format) */
 export const formatToken = (token: string): string => {
   return "Bearer " + token;
 };
 
-/** 是否有按钮级别的权限（根据登录接口返回的`permissions`字段进行判断）*/
+/** Check if there is button-level permission (determined by the `permissions` field returned from the login API) */
 export const hasPerms = (value: string | Array<string>): boolean => {
   if (!value) return false;
   const allPerms = "*:*:*";

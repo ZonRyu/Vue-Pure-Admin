@@ -8,7 +8,7 @@ type EventType =
   | "closeAutoFocus"
   | "fullscreenCallBack";
 type ArgsType = {
-  /** `cancel` 点击取消按钮、`sure` 点击确定按钮、`close` 点击右上角关闭按钮或空白页或按下了esc键 */
+  /** `cancel` when clicking the cancel button, `sure` when clicking the confirm button, `close` when clicking the close button in the top-right corner, the mask, or pressing ESC */
   command: "cancel" | "sure" | "close";
 };
 type ButtonType =
@@ -21,75 +21,75 @@ type ButtonType =
 
 /** https://element-plus.org/zh-CN/component/dialog.html#attributes */
 type DialogProps = {
-  /** `Dialog` 的显示与隐藏 */
+  /** Show or hide the Dialog */
   visible?: boolean;
-  /** `Dialog` 的标题 */
+  /** Dialog title */
   title?: string;
-  /** `Dialog` 的宽度，默认 `50%` */
+  /** Dialog width, default `50%` */
   width?: string | number;
-  /** 是否为全屏 `Dialog`（会一直处于全屏状态，除非弹框关闭），默认 `false`，`fullscreen` 和 `fullscreenIcon` 都传时只有 `fullscreen` 会生效 */
+  /** Whether to display the dialog in fullscreen mode (remains fullscreen until closed), default `false`. If both `fullscreen` and `fullscreenIcon` are provided, only `fullscreen` will take effect */
   fullscreen?: boolean;
-  /** 是否显示全屏操作图标，默认 `false`，`fullscreen` 和 `fullscreenIcon` 都传时只有 `fullscreen` 会生效 */
+  /** Whether to show the fullscreen toggle icon, default `false`. If both `fullscreen` and `fullscreenIcon` are provided, only `fullscreen` will take effect */
   fullscreenIcon?: boolean;
-  /** `Dialog CSS` 中的 `margin-top` 值，默认 `15vh` */
+  /** `margin-top` value in Dialog CSS, default `15vh` */
   top?: string;
-  /** 是否需要遮罩层，默认 `true` */
+  /** Whether a mask is needed, default `true` */
   modal?: boolean;
-  /** `Dialog` 自身是否插入至 `body` 元素上。嵌套的 `Dialog` 必须指定该属性并赋值为 `true`，默认 `false` */
+  /** Whether to append the dialog to the `body` element. Nested dialogs must set this to `true`, default `false` */
   appendToBody?: boolean;
-  /** 是否在 `Dialog` 出现时将 `body` 滚动锁定，默认 `true` */
+  /** Whether to lock body scroll when dialog appears, default `true` */
   lockScroll?: boolean;
-  /** `Dialog` 的自定义类名 */
+  /** Custom class name for Dialog */
   class?: string;
-  /** `Dialog` 的自定义样式 */
+  /** Custom styles for Dialog */
   style?: CSSProperties;
-  /** `Dialog` 打开的延时时间，单位毫秒，默认 `0` */
+  /** Delay before opening the dialog in milliseconds, default `0` */
   openDelay?: number;
-  /** `Dialog` 关闭的延时时间，单位毫秒，默认 `0` */
+  /** Delay before closing the dialog in milliseconds, default `0` */
   closeDelay?: number;
-  /** 是否可以通过点击 `modal` 关闭 `Dialog`，默认 `true` */
+  /** Whether the dialog can be closed by clicking the mask, default `true` */
   closeOnClickModal?: boolean;
-  /** 是否可以通过按下 `ESC` 关闭 `Dialog`，默认 `true` */
+  /** Whether the dialog can be closed by pressing `ESC`, default `true` */
   closeOnPressEscape?: boolean;
-  /** 是否显示关闭按钮，默认 `true` */
+  /** Whether to show the close button, default `true` */
   showClose?: boolean;
-  /** 关闭前的回调，会暂停 `Dialog` 的关闭. 回调函数内执行 `done` 参数方法的时候才是真正关闭对话框的时候 */
+  /** Callback before dialog closes, which will pause the dialog closing. The dialog will only close when the `done` function is called inside the callback */
   beforeClose?: (done: DoneFn) => void;
-  /** 为 `Dialog` 启用可拖拽功能，默认 `false` */
+  /** Enable draggable functionality for the dialog, default `false` */
   draggable?: boolean;
-  /** 是否让 `Dialog` 的 `header` 和 `footer` 部分居中排列，默认 `false` */
+  /** Whether to center the dialog header and footer, default `false` */
   center?: boolean;
-  /** 是否水平垂直对齐对话框，默认 `false` */
+  /** Whether to align the dialog both horizontally and vertically, default `false` */
   alignCenter?: boolean;
-  /** 当关闭 `Dialog` 时，销毁其中的元素，默认 `false` */
+  /** Whether to destroy elements in dialog when closed, default `false` */
   destroyOnClose?: boolean;
 };
 
 //element-plus.org/zh-CN/component/popconfirm.html#attributes
 type Popconfirm = {
-  /** 标题 */
+  /** Title */
   title?: string;
-  /** 确定按钮文字 */
+  /** Confirm button text */
   confirmButtonText?: string;
-  /** 取消按钮文字 */
+  /** Cancel button text */
   cancelButtonText?: string;
-  /** 确定按钮类型，默认 `primary` */
+  /** Confirm button type, default `primary` */
   confirmButtonType?: ButtonType;
-  /** 取消按钮类型，默认 `text` */
+  /** Cancel button type, default `text` */
   cancelButtonType?: ButtonType;
-  /** 自定义图标，默认 `QuestionFilled` */
+  /** Custom icon, default `QuestionFilled` */
   icon?: string | Component;
-  /** `Icon` 颜色，默认 `#f90` */
+  /** Icon color, default `#f90` */
   iconColor?: string;
-  /** 是否隐藏 `Icon`，默认 `false` */
+  /** Whether to hide the icon, default `false` */
   hideIcon?: boolean;
-  /** 关闭时的延迟，默认 `200` */
+  /** Delay before closing in milliseconds, default `200` */
   hideAfter?: number;
-  /** 是否将 `popover` 的下拉列表插入至 `body` 元素，默认 `true` */
+  /** Whether to append the dropdown to body, default `true` */
   teleported?: boolean;
-  /** 当 `popover` 组件长时间不触发且 `persistent` 属性设置为 `false` 时, `popover` 将会被删除，默认 `false` */
+  /** Whether the popover will be destroyed when it's not triggered for a while and `persistent` is `false`, default `false` */
   persistent?: boolean;
-  /** 弹层宽度，最小宽度 `150px`，默认 `150` */
+  /** Popup width, minimum width `150px`, default `150` */
   width?: string | number;
 };
 
@@ -141,22 +141,22 @@ type ButtonProps = {
   color?: string;
   /** `dark` 模式, 意味着自动设置 `color` 为 `dark` 模式的颜色，默认 `false` */
   dark?: boolean;
-  /** 自定义元素标签 */
+  /** Custom element tag */
   tag?: string | Component;
-  /** 点击按钮后触发的回调 */
+  /** Callback triggered after clicking the button */
   btnClick?: ({
     dialog,
     button
   }: {
-    /** 当前 `Dialog` 信息 */
+    /** Current dialog information */
     dialog: BtnClickDialog;
-    /** 当前 `button` 信息 */
+    /** Current button information */
     button: BtnClickButton;
   }) => void;
 };
 
 interface DialogOptions extends DialogProps {
-  /** 内容区组件的 `props`，可通过 `defineProps` 接收 */
+  /** Props for the content area component, can be received through `defineProps` */
   props?: any;
   /** 是否隐藏 `Dialog` 按钮操作区的内容 */
   hideFooter?: boolean;
@@ -266,7 +266,7 @@ interface DialogOptions extends DialogProps {
     }: {
       options: DialogOptions;
       index: number;
-      /** 关闭确定按钮的 `loading` 加载动画 */
+      /** Close the loading animation of the confirm button */
       closeLoading: Function;
     }
   ) => void;

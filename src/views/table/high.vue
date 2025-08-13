@@ -18,7 +18,7 @@ function tabClick({ index }) {
     <template #header>
       <div class="card-header">
         <span class="font-medium">
-          高级用法全部采用 TSX 语法，充分发挥
+          Advanced usage fully utilizes TSX syntax to maximize the flexibility of
           <el-link
             href="https://github.com/pure-admin/pure-admin-table"
             target="_blank"
@@ -26,7 +26,7 @@ function tabClick({ index }) {
           >
             @pureadmin/table
           </el-link>
-          的灵活性，维护整体表格只需操作 columns 配置即可
+          , allowing you to maintain the entire table by simply configuring the columns
         </span>
       </div>
       <el-link
@@ -34,13 +34,12 @@ function tabClick({ index }) {
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/table/high"
         target="_blank"
       >
-        代码位置 src/views/table/high
+        Code location: src/views/table/high
       </el-link>
     </template>
 
     <el-alert
-      title="高级用法中所有表格都设置了 row-key ，后端需返回唯一值的字段，比如id。作用：1. 用来优化 Table
-      的渲染，尤其当字段在深层结构中；2. 防止拖拽后表格组件内部混乱（拖拽必须设置）"
+      title="All tables in advanced usage have row-key set. The backend needs to return a field with unique values, such as id. Purpose: 1. To optimize Table rendering, especially when fields are in deep structures; 2. To prevent internal confusion in table components after dragging (required for drag and drop functionality)"
       type="info"
       :closable="false"
     />
@@ -52,7 +51,7 @@ function tabClick({ index }) {
             <span
               v-tippy="{
                 maxWidth: 'none',
-                content: `（第 ${index + 1} 个示例）${item.content}`
+                content: `(Example ${index + 1}) ${item.content}`
               }"
             >
               {{ item.title }}

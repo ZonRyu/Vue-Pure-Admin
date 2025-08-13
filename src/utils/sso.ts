@@ -2,22 +2,25 @@ import { removeToken, setToken, type DataInfo } from "./auth";
 import { subBefore, getQueryMap } from "@pureadmin/utils";
 
 /**
- * 简版前端单点登录，根据实际业务自行编写，平台启动后本地可以跳后面这个链接进行测试 http://localhost:8848/#/permission/page/index?username=sso&roles=admin&accessToken=eyJhbGciOiJIUzUxMiJ9.admin
- * 划重点：
- * 判断是否为单点登录，不为则直接返回不再进行任何逻辑处理，下面是单点登录后的逻辑处理
- * 1.清空本地旧信息；
- * 2.获取url中的重要参数信息，然后通过 setToken 保存在本地；
- * 3.删除不需要显示在 url 的参数
- * 4.使用 window.location.replace 跳转正确页面
+ * Simplified frontend single sign-on (SSO), customize according to actual business needs.
+ * After the platform starts, you can test with this link: http://localhost:8848/#/permission/page/index?username=sso&roles=admin&accessToken=eyJhbGciOiJIUzUxMiJ9.admin
+ * 
+ * Key points:
+ * Determine if it's an SSO login, if not, return directly without further processing.
+ * Below is the logic after SSO login:
+ * 1. Clear old local information;
+ * 2. Get important parameters from URL and save them locally using setToken;
+ * 3. Remove parameters that don't need to be displayed in the URL;
+ * 4. Use window.location.replace to navigate to the correct page
  */
 (function () {
-  // 获取 url 中的参数
+  // Get parameters from URL
   const params = getQueryMap(location.href) as DataInfo<Date>;
   const must = ["username", "roles", "accessToken"];
   const mustLength = must.length;
   if (Object.keys(params).length !== mustLength) return;
 
-  // url 参数满足 must 里的全部值，才判定为单点登录，避免非单点登录时刷新页面无限循环
+  // Only consider it as SSO login if URL parameters contain all values in 'must' array, to avoid infinite page refresh loop during non-SSO login
   let sso = [];
   let start = 0;
 
@@ -31,15 +34,15 @@ import { subBefore, getQueryMap } from "@pureadmin/utils";
   }
 
   if (sso.length === mustLength) {
-    // 判定为单点登录
+    // Determined as SSO login
 
-    // 清空本地旧信息
+    // Clear old local information
     removeToken();
 
-    // 保存新信息到本地
+    // Save new information locally
     setToken(params);
 
-    // 删除不需要显示在 url 的参数
+    // Remove parameters that don't need to be displayed in the URL
     delete params.roles;
     delete params.accessToken;
 
@@ -51,7 +54,7 @@ import { subBefore, getQueryMap } from "@pureadmin/utils";
       .replace(/:/g, "=")
       .replace(/,/g, "&")}`;
 
-    // 替换历史记录项
+    // Replace history entry
     window.location.replace(newUrl);
   } else {
     return;

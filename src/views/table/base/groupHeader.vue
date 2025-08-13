@@ -3,23 +3,23 @@ import { tableDataMore } from "./data";
 
 const columns: TableColumnList = [
   {
-    label: "日期",
+    label: "Date",
     prop: "date",
     fixed: true
   },
   {
-    label: "姓名",
+    label: "Name",
     prop: "name",
     children: [
       {
-        label: "地区",
+        label: "Address",
         children: [
           {
-            label: "城市",
+            label: "City",
             prop: "city"
           },
           {
-            label: "地址",
+            label: "Address",
             prop: "address"
           }
         ]
@@ -27,7 +27,7 @@ const columns: TableColumnList = [
     ]
   },
   {
-    label: "邮编",
+    label: "Post-code",
     prop: "post-code"
   }
 ];

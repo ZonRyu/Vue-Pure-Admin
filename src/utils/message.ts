@@ -6,36 +6,36 @@ type messageStyle = "el" | "antd";
 type messageTypes = "info" | "success" | "warning" | "error";
 
 interface MessageParams {
-  /** 消息类型，可选 `info` 、`success` 、`warning` 、`error` ，默认 `info` */
+  /** Message type, optional `info`, `success`, `warning`, `error`, defaults to `info` */
   type?: messageTypes;
-  /** 是否纯色，默认 `false` */
+  /** Whether to use solid color, default `false` */
   plain?: boolean;
-  /** 自定义图标，该属性会覆盖 `type` 的图标 */
+  /** Custom icon, this will override the icon from `type` */
   icon?: any;
-  /** 是否将 `message` 属性作为 `HTML` 片段处理，默认 `false` */
+  /** Whether to treat the `message` property as an `HTML` fragment, default `false` */
   dangerouslyUseHTMLString?: boolean;
-  /** 消息风格，可选 `el` 、`antd` ，默认 `antd` */
+  /** Message style, optional `el`, `antd`, defaults to `antd` */
   customClass?: messageStyle;
-  /** 显示时间，单位为毫秒。设为 `0` 则不会自动关闭，`element-plus` 默认是 `3000` ，平台改成默认 `2000` */
+  /** Display duration in milliseconds. Set to `0` to prevent auto-close, `element-plus` default is `3000`, platform default is `2000` */
   duration?: number;
-  /** 是否显示关闭按钮，默认值 `false` */
+  /** Whether to show close button, default `false` */
   showClose?: boolean;
-  /** `Message` 距离窗口顶部的偏移量，默认 `16` */
+  /** Offset from the top of the viewport for `Message`, default `16` */
   offset?: number;
-  /** 设置组件的根元素，默认 `document.body` */
+  /** Set the root element for the component, default `document.body` */
   appendTo?: string | HTMLElement;
-  /** 合并内容相同的消息，不支持 `VNode` 类型的消息，默认值 `false` */
+  /** Merge messages with the same content, does not support `VNode` type messages, default `false` */
   grouping?: boolean;
-  /** 重复次数，类似于 `Badge` 。当和 `grouping` 属性一起使用时作为初始数量使用，默认值 `1` */
+  /** Repeat count, similar to `Badge`. When used with `grouping` property, used as initial count, default `1` */
   repeatNum?: number;
-  /** 关闭时的回调函数, 参数为被关闭的 `message` 实例 */
+  /** Callback when closed, with the closed `message` instance as parameter */
   onClose?: Function | null;
 }
 
-/** 用法非常简单，参考 src/views/components/message/index.vue 文件 */
+/** Very simple to use, refer to src/views/components/message/index.vue file */
 
 /**
- * `Message` 消息提示函数
+ * `Message` notification function
  */
 const message = (
   message: string | VNode | (() => VNode),
@@ -74,7 +74,7 @@ const message = (
       appendTo,
       grouping,
       repeatNum,
-      // 全局搜 pure-message 即可知道该类的样式位置
+      // Search globally for pure-message to find the style location
       customClass: customClass === "antd" ? "pure-message" : "",
       onClose: () => (isFunction(onClose) ? onClose() : null)
     });
@@ -82,7 +82,7 @@ const message = (
 };
 
 /**
- * 关闭所有 `Message` 消息提示函数
+ * Close all `Message` notifications
  */
 const closeAllMessage = (): void => ElMessage.closeAll();
 

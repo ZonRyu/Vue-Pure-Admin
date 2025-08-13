@@ -14,13 +14,13 @@ const format = percentage => (percentage === 100 ? "Full" : `${percentage}%`);
       <div class="card-header">
         <el-link
           v-tippy="{
-            content: '点击查看详细文档'
+            content: 'Click to view detailed documentation'
           }"
           href="https://element-plus.org/zh-CN/component/progress.html"
           target="_blank"
           style="font-size: 16px; font-weight: 800"
         >
-          进度条
+          Progress bar
         </el-link>
       </div>
       <el-link
@@ -28,11 +28,11 @@ const format = percentage => (percentage === 100 ? "Full" : `${percentage}%`);
         href="https://github.com/pure-admin/vue-pure-admin/blob/main/src/views/components/progress.vue"
         target="_blank"
       >
-        代码位置 src/views/components/progress.vue
+        Code location src/views/components/progress.vue
       </el-link>
     </template>
 
-    <div class="mb-4">直线进度条动画</div>
+    <div class="mb-4">Straight progress bar animation</div>
     <div class="w-1/4">
       <el-progress indeterminate :percentage="50" class="mb-4" />
       <el-progress
@@ -61,7 +61,7 @@ const format = percentage => (percentage === 100 ? "Full" : `${percentage}%`);
       />
     </div>
 
-    <div class="mb-4">进度条内显示百分比标识</div>
+    <div class="mb-4">Progress bar percentage display</div>
     <div class="w-1/4">
       <el-progress
         :text-inside="true"
@@ -97,10 +97,10 @@ const format = percentage => (percentage === 100 ? "Full" : `${percentage}%`);
       />
     </div>
 
-    <div class="mb-4">自定义内容</div>
+    <div class="mb-4">Custom content</div>
     <div class="w-1/4 demo-progress">
       <el-progress :percentage="50">
-        <el-button text>自定义内容</el-button>
+        <el-button text>Custom content</el-button>
       </el-progress>
       <el-progress
         :text-inside="true"
@@ -108,7 +108,7 @@ const format = percentage => (percentage === 100 ? "Full" : `${percentage}%`);
         :percentage="50"
         status="exception"
       >
-        <span>自定义内容</span>
+        <span>Custom content</span>
       </el-progress>
       <el-progress type="circle" :percentage="100" status="success">
         <el-button type="success" :icon="useRenderIcon('ep:check')" circle />
@@ -116,7 +116,7 @@ const format = percentage => (percentage === 100 ? "Full" : `${percentage}%`);
       <el-progress type="dashboard" :percentage="80">
         <template #default="{ percentage }">
           <span class="percentage-value">{{ percentage }}%</span>
-          <span class="percentage-label">上升率</span>
+          <span class="percentage-label">Increase rate</span>
         </template>
       </el-progress>
     </div>

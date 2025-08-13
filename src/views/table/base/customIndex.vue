@@ -11,15 +11,15 @@ const columns: TableColumnList = [
     index: indexMethod
   },
   {
-    label: "日期",
+    label: "Date",
     prop: "date"
   },
   {
-    label: "姓名",
+    label: "Name",
     prop: "name"
   },
   {
-    label: "地址",
+    label: "Address",
     prop: "address"
   }
 ];

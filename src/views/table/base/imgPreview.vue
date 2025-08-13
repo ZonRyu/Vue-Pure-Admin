@@ -3,23 +3,23 @@ import { tableDataImage } from "./data";
 
 const columns: TableColumnList = [
   {
-    label: "日期",
+    label: "Date",
     prop: "date"
   },
   {
-    label: "姓名",
+    label: "Name",
     prop: "name"
   },
   {
-    label: "地址",
+    label: "Address",
     prop: "address"
   },
   {
-    label: "视频",
+    label: "Video",
     slot: "video"
   },
   {
-    label: "图像",
+    label: "Image",
     slot: "image"
   }
 ];

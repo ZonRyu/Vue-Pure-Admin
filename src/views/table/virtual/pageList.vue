@@ -27,10 +27,10 @@ const pagerConfig = reactive({
 });
 
 const columns = [
-  { type: "seq", field: "seq", title: "序号", width: 100 },
-  { field: "name", title: "名称", sortable: true },
-  { field: "role", title: "角色" },
-  { field: "sex", title: "性别" }
+  { type: "seq", field: "seq", title: "Number", width: 100 },
+  { field: "name", title: "Name", sortable: true },
+  { field: "role", title: "Role" },
+  { field: "sex", title: "Gender" }
 ];
 
 async function onSearch() {
@@ -42,7 +42,7 @@ async function onSearch() {
       id: index,
       name: "Test" + index,
       role: "Developer",
-      sex: "男"
+      sex: 0
     });
   }
   pagerConfig.total = 20;
@@ -65,7 +65,7 @@ onSearch();
   <VxeTableBar
     :vxeTableRef="vxeTableRef"
     :columns="columns"
-    title="分页表格"
+    title="Pagination table"
     @refresh="onSearch"
   >
     <template v-slot="{ size, dynamicColumns }">

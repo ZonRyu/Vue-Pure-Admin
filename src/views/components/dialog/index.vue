@@ -20,142 +20,142 @@ const router = useRouter();
 
 function onBaseClick() {
   addDialog({
-    title: "基础用法",
-    contentRenderer: () => <p>弹框内容-基础用法</p> // jsx 语法 （注意在.vue文件启用jsx语法，需要在script开启lang="tsx"）
+    title: "Basic usage",
+    contentRenderer: () => <p>Dialog content - Basic usage</p> // jsx syntax (note that in .vue files, enable jsx syntax, need to open lang="tsx" in script)
   });
 }
 
 function onDraggableClick() {
   addDialog({
-    title: "可拖拽",
+    title: "Draggable",
     draggable: true,
-    contentRenderer: () => h("p", "弹框内容-可拖拽") // h 渲染函数 https://cn.vuejs.org/api/render-function.html#h
+    contentRenderer: () => h("p", "Dialog content - Draggable") // h render function https://cn.vuejs.org/api/render-function.html#h
   });
 }
 
 function onFullscreenClick() {
   addDialog({
-    title: "全屏",
+    title: "Fullscreen",
     fullscreen: true,
-    contentRenderer: () => createVNode("p", null, "弹框内容-全屏") // createVNode 渲染函数 https://cn.vuejs.org/guide/extras/render-function.html#creating-vnodes
+    contentRenderer: () => createVNode("p", null, "Dialog content - Fullscreen") // createVNode render function https://cn.vuejs.org/guide/extras/render-function.html#creating-vnodes
   });
 }
 
 function onFullscreenIconClick() {
   addDialog({
-    title: "全屏按钮和全屏事件",
+    title: "Fullscreen Button and Events",
     fullscreenIcon: true,
     fullscreenCallBack: ({ options, index }) =>
-      message(options.fullscreen ? "全屏" : "非全屏"),
-    contentRenderer: () => <p>弹框内容-全屏按钮和全屏事件</p>
+      message(options.fullscreen ? "Fullscreen" : "Exit Fullscreen"),
+    contentRenderer: () => <p>Dialog content - Fullscreen button and events</p>
   });
 }
 
 function onModalClick() {
   addDialog({
-    title: "无背景遮罩层",
+    title: "No Background Mask",
     modal: false,
-    contentRenderer: () => <p>弹框内容-无背景遮罩层</p>
+    contentRenderer: () => <p>Dialog content - No background mask</p>
   });
 }
 
 function onStyleClick() {
   addDialog({
-    title: "自定义弹出位置",
+    title: "Custom Position",
     top: "60vh",
     style: { marginRight: "20px" },
-    contentRenderer: () => <p>弹框内容-自定义弹出位置</p>
+    contentRenderer: () => <p>Dialog content - Custom position</p>
   });
 }
 
-// 添加 600ms 防抖
+// Add 600ms debounce
 const onoOpenDelayClick = debounce(
   () =>
     addDialog({
-      title: "延时2秒打开弹框",
+      title: "Delay 2 seconds to open dialog",
       openDelay: 2000 - 600,
-      contentRenderer: () => <p>弹框内容-延时2秒打开弹框</p>
+      contentRenderer: () => <p>Dialog content - Delay 2 seconds to open dialog</p>
     }),
   600
 );
 
 function onCloseDelayClick() {
   addDialog({
-    title: "延时2秒关闭弹框",
+    title: "Delay 2 seconds to close dialog",
     closeDelay: 2000,
-    contentRenderer: () => <p>弹框内容-延时2秒关闭弹框</p>
+    contentRenderer: () => <p>Dialog content - Delay 2 seconds to close dialog</p>
   });
 }
 
 function onShowCloseClick() {
   addDialog({
-    title: "不显示右上角关闭按钮图标",
+    title: "Do not display the close button icon in the upper right corner",
     showClose: false,
-    contentRenderer: () => <p>弹框内容-不显示右上角关闭按钮图标</p>
+    contentRenderer: () => <p>Dialog content - Do not display the close button icon in the upper right corner</p>
   });
 }
 
 function onBeforeCloseClick() {
   addDialog({
-    title: "禁止通过键盘ESC关闭",
+    title: "Prohibited from closing through keyboard ESC",
     closeOnPressEscape: false,
-    contentRenderer: () => <p>弹框内容-禁止通过键盘ESC关闭</p>
+    contentRenderer: () => <p>Dialog content - Prohibited from closing through keyboard ESC</p>
   });
 }
 
 function onCloseOnClickModalClick() {
   addDialog({
-    title: "禁止通过点击modal关闭",
+    title: "Prohibited from closing through clicking modal",
     closeOnClickModal: false,
-    contentRenderer: () => <p>弹框内容-禁止通过点击modal关闭</p>
+    contentRenderer: () => <p>Dialog content - Prohibited from closing through clicking modal</p>
   });
 }
 
 function onHideFooterClick() {
   addDialog({
-    title: "隐藏底部取消、确定按钮",
+    title: "Hide bottom cancel, confirm buttons",
     hideFooter: true,
-    contentRenderer: () => <p>弹框内容-隐藏底部取消、确定按钮</p>
+    contentRenderer: () => <p>Dialog content - Hide bottom cancel, confirm buttons</p>
   });
 }
 
 function onHeaderRendererClick() {
   addDialog({
-    title: "自定义头部",
+    title: "Custom header",
     showClose: false,
     headerRenderer: ({ close, titleId, titleClass }) => (
-      // jsx 语法
+      // jsx syntax
       <div class="flex flex-row justify-between">
         <h4 id={titleId} class={titleClass}>
-          自定义头部
+          Custom header
         </h4>
         <el-button type="danger" onClick={close}>
-          关闭
+          Close
         </el-button>
       </div>
     ),
-    contentRenderer: () => <p>弹框内容-自定义头部</p>
+    contentRenderer: () => <p>Dialog content - Custom header</p>
   });
 }
 
 function onFooterRendererClick() {
   addDialog({
-    title: "自定义底部",
+    title: "Custom footer",
     footerRenderer: ({ options, index }) => (
       <el-button onClick={() => closeDialog(options, index)}>
         {options.title}-{index}
       </el-button>
     ),
-    contentRenderer: () => <p>弹框内容-自定义底部</p>
+    contentRenderer: () => <p>Dialog content - Custom footer</p>
   });
 }
 
 function onFooterButtonsClick() {
   addDialog({
-    title: "自定义底部按钮",
+    title: "Custom footer buttons",
     footerButtons: [
       {
-        label: "按钮1",
+        label: "Button 1",
         size: "small",
         type: "success",
         btnClick: ({ dialog: { options, index }, button }) => {
@@ -164,7 +164,7 @@ function onFooterButtonsClick() {
         }
       },
       {
-        label: "按钮2",
+        label: "Button 2",
         text: true,
         bg: true,
         btnClick: ({ dialog: { options, index }, button }) => {
@@ -173,7 +173,7 @@ function onFooterButtonsClick() {
         }
       },
       {
-        label: "按钮3",
+        label: "Button 3",
         size: "large",
         type: "warning",
         btnClick: ({ dialog: { options, index }, button }) => {
@@ -182,212 +182,212 @@ function onFooterButtonsClick() {
         }
       }
     ],
-    contentRenderer: () => <p>弹框内容-自定义底部按钮</p>
+    contentRenderer: () => <p>Dialog content - Custom footer buttons</p>
   });
 }
 
 function onOpenClick() {
   addDialog({
-    title: "打开后的回调",
+    title: "Open callback",
     open: ({ options, index }) => message({ options, index } as any),
-    contentRenderer: () => <p>弹框内容-打开后的回调</p>
+    contentRenderer: () => <p>Dialog content - Open callback</p>
   });
 }
 
 function onCloseCallBackClick() {
   addDialog({
-    title: "关闭后的回调",
+    title: "Close callback",
     closeCallBack: ({ options, index, args }) => {
       console.log(options, index, args);
       let text = "";
       if (args?.command === "cancel") {
-        text = "您点击了取消按钮";
+        text = "You clicked the cancel button";
       } else if (args?.command === "sure") {
-        text = "您点击了确定按钮";
+        text = "You clicked the sure button";
       } else {
-        text = "您点击了右上角关闭按钮或空白页或按下了esc键";
+        text = "You clicked the right upper corner close button or blank page or pressed esc key";
       }
       message(text);
     },
-    contentRenderer: () => <p>弹框内容-关闭后的回调</p>
+    contentRenderer: () => <p>Dialog content - Close callback</p>
   });
 }
 
-// 这里为了演示方便，使用了嵌套写法，实际情况下最好把 addDialog 函数抽出来 套娃不可取
+// For the convenience of demonstration, we used nested writing, but in actual situations, it is best to extract the addDialog function. Nesting is not recommended
 function onNestingClick() {
   addDialog({
-    title: "嵌套的弹框",
+    title: "Nested dialog",
     contentRenderer: ({ index }) => (
       <el-button
         onClick={() =>
           addDialog({
-            title: `第${index + 1}个子弹框`,
+            title: `The ${index + 1}th bullet dialog`,
             width: "40%",
             contentRenderer: ({ index }) => (
               <el-button
                 onClick={() =>
                   addDialog({
-                    title: `第${index + 1}个子弹框`,
+                    title: `The ${index + 1}th bullet dialog`,
                     width: "30%",
                     contentRenderer: () => (
                       <>
                         <el-button round onClick={() => closeAllDialog()}>
-                          哎呦，你干嘛，赶快关闭所有弹框
+                          Oh, you're doing it, quickly close all dialogs
                         </el-button>
                       </>
                     )
                   })
                 }
               >
-                点击打开第{index + 1}个子弹框
+                Click to open the {index + 1}th bullet dialog
               </el-button>
             )
           })
         }
       >
-        点击打开第{index + 1}个子弹框
+        Click to open the {index + 1}th bullet dialog
       </el-button>
     )
   });
 }
 
-// 满足在 contentRenderer 内容区更改弹框自身属性值的场景
+// Satisfy the scenario of changing the dialog's own attribute value in the contentRenderer content area
 function onUpdateClick() {
   const curPage = ref(1);
   addDialog({
-    title: `第${curPage.value}页`,
+    title: `The ${curPage.value}th page`,
     contentRenderer: () => (
       <>
         <el-button
           disabled={curPage.value > 1 ? false : true}
           onClick={() => {
             curPage.value -= 1;
-            updateDialog(`第${curPage.value}页`);
+            updateDialog(`The ${curPage.value}th page`);
           }}
         >
-          上一页
+          Previous page
         </el-button>
         <el-button
           onClick={() => {
             curPage.value += 1;
-            updateDialog(`第${curPage.value}页`);
+            updateDialog(`The ${curPage.value}th page`);
           }}
         >
-          下一页
+          Next page
         </el-button>
       </>
     )
   });
 }
 
-// Popconfirm 确认框
+// Popconfirm confirmation box
 function onPopconfirmClick() {
   addDialog({
     width: "30%",
-    title: "Popconfirm确认框示例",
-    popconfirm: { title: "是否确认修改当前数据" },
-    contentRenderer: () => <p>点击右下方确定按钮看看效果吧</p>
+    title: "Popconfirm confirmation box example",
+    popconfirm: { title: "Confirm modification of current data" },
+    contentRenderer: () => <p>Click the confirm button below to see the effect</p>
   });
 }
 
-// 结合Form表单（第一种方式，弹框关闭立刻恢复初始值）通过 props 属性接收子组件的 prop 并赋值
+// Combine Form form (first way, the dialog closes immediately and restores the initial value) receive the prop of the child component and assign it
 function onFormOneClick() {
   addDialog({
     width: "30%",
-    title: "结合Form表单（第一种方式）",
+    title: "Combine Form form (first way, the dialog closes immediately and restores the initial value)",
     contentRenderer: () => forms,
     props: {
-      // 赋默认值
+      // Assign default value
       formInline: {
-        user: "菜虚鲲",
-        region: "浙江"
+        user: "Cai Xukun",
+        region: "Zhejiang"
       }
     },
     closeCallBack: ({ options, args }) => {
-      // options.props 是响应式的
+      // options.props is reactive
       const { formInline } = options.props as FormProps;
-      const text = `姓名：${formInline.user} 城市：${formInline.region}`;
+      const text = `Name: ${formInline.user} City: ${formInline.region}`;
       if (args?.command === "cancel") {
-        // 您点击了取消按钮
-        message(`您点击了取消按钮，当前表单数据为 ${text}`);
+        // You clicked the cancel button
+        message(`You clicked the cancel button, the current form data is ${text}`);
       } else if (args?.command === "sure") {
-        message(`您点击了确定按钮，当前表单数据为 ${text}`);
+        message(`You clicked the sure button, the current form data is ${text}`);
       } else {
         message(
-          `您点击了右上角关闭按钮或空白页或按下了esc键，当前表单数据为 ${text}`
+          `You clicked the right upper corner close button or blank page or pressed esc key, the current form data is ${text}`
         );
       }
     }
   });
 }
 
-// 结合Form表单（第二种方式）h 渲染函数 https://cn.vuejs.org/api/render-function.html#h
+// Combine Form form (second way, h rendering function) https://cn.vuejs.org/api/render-function.html#h
 const formInline = ref({
-  user: "菜虚鲲",
-  region: "浙江"
+  user: "Cai Xukun",
+  region: "Zhejiang"
 });
 const resetFormInline = cloneDeep(formInline.value);
 function onFormTwoClick() {
   addDialog({
     width: "30%",
-    title: "结合Form表单（第二种方式）",
+    title: "Combine Form form (second way, h rendering function)",
     contentRenderer: () =>
       h(forms, {
         formInline: formInline.value
       }),
     closeCallBack: () => {
       message(
-        `当前表单数据为 姓名：${formInline.value.user} 城市：${formInline.value.region}`
+        `The current form data is Name: ${formInline.value.user} City: ${formInline.value.region}`
       );
-      // 重置表单数据
+      // Reset form data
       formInline.value = cloneDeep(resetFormInline);
     }
   });
 }
 
-// 结合Form表单（第三种方式）createVNode 渲染函数 https://cn.vuejs.org/guide/extras/render-function.html#creating-vnodes
+// Combine Form form (third way, createVNode rendering function) https://cn.vuejs.org/guide/extras/render-function.html#creating-vnodes
 const formThreeInline = ref({
-  user: "菜虚鲲",
-  region: "浙江"
+  user: "Cai Xukun",
+  region: "Zhejiang"
 });
 const resetFormThreeInline = cloneDeep(formThreeInline.value);
 function onFormThreeClick() {
   addDialog({
     width: "30%",
-    title: "结合Form表单（第三种方式）",
+    title: "Combine Form form (third way, createVNode rendering function)",
     contentRenderer: () =>
       createVNode(forms, {
         formInline: formThreeInline.value
       }),
     closeCallBack: () => {
       message(
-        `当前表单数据为 姓名：${formThreeInline.value.user} 城市：${formThreeInline.value.region}`
+        `The current form data is Name: ${formThreeInline.value.user} City: ${formThreeInline.value.region}`
       );
-      // 重置表单数据
+      // Reset form data
       formThreeInline.value = cloneDeep(resetFormThreeInline);
     }
   });
 }
 
-// 结合Form表单（第四种方式）使用jsx语法
-// 需要注意的是如果 forms 没注册，这里 forms 注册了是因为上面 contentRenderer: () => forms、h(forms) 、createVNode(createVNode) 间接给注册了
-// 如果只使用了jsx语法，如下 `contentRenderer: () => <forms formInline={formFourInline.value} />` 是不会给 forms 组件进行注册的，需要在 `script` 中任意位置（最好是末尾）写上 forms 即可
-// 同理如果在 tsx 文件中，这么使用 `contentRenderer: () => <forms formInline={formFourInline.value} />`，也是不会给 forms 组件进行注册，需要在 return 中写上 forms
+// Combine Form form (fourth way, jsx syntax)
+// Note that if forms is not registered, here forms is registered because above contentRenderer: () => forms、h(forms) 、createVNode(createVNode) indirectly registered it
+// If only using jsx syntax, as shown below `contentRenderer: () => <forms formInline={formFourInline.value} />` will not register the forms component, need to write forms in `script` at any position (best at the end)
+// Similarly, if using `contentRenderer: () => <forms formInline={formFourInline.value} />` in tsx file, it will not register the forms component, need to write forms in return
 const formFourInline = ref({
-  user: "菜虚鲲",
+  user: "Cai Xukun",
   region: "浙江"
 });
 const resetFormFourInline = cloneDeep(formFourInline.value);
 function onFormFourClick() {
   addDialog({
     width: "30%",
-    title: "结合Form表单（第四种方式）",
+    title: "Combine Form form (fourth way, jsx syntax)",
     contentRenderer: () => <forms formInline={formFourInline.value} />,
     closeCallBack: () => {
       message(
-        `当前表单数据为 姓名：${formFourInline.value.user} 城市：${formFourInline.value.region}`
+        `The current form data is Name: ${formFourInline.value.user} City: ${formFourInline.value.region}`
       );
-      // 重置表单数据
+      // Reset form data
       formFourInline.value = cloneDeep(resetFormFourInline);
     }
   });
@@ -399,15 +399,15 @@ const resetFormPrimitiveParam = ref(formPrimitiveParam.value);
 function onFormPrimitiveFormClick() {
   addDialog({
     width: "30%",
-    title: "子组件 prop 为 primitive 类型 demo",
+    title: "Subcomponent prop is primitive type demo",
     contentRenderer: () =>
       h(formPrimitive, {
         data: formPrimitiveParam.value,
         "onUpdate:data": val => (formPrimitiveParam.value = val)
       }),
     closeCallBack: () => {
-      message(`当前表单内容：${formPrimitiveParam.value}`);
-      // 重置表单数据
+      message(`The current form content: ${formPrimitiveParam.value}`);
+      // Reset form data
       formPrimitiveParam.value = resetFormPrimitiveParam.value;
     }
   });
@@ -415,9 +415,9 @@ function onFormPrimitiveFormClick() {
 
 function onBeforeCancelClick() {
   addDialog({
-    title: "点击底部取消按钮的回调",
+    title: "Click the bottom cancel button callback",
     contentRenderer: () => (
-      <p>弹框内容-点击底部取消按钮的回调（会暂停弹框的关闭）</p>
+      <p>Dialog content - Click the bottom cancel button callback (will pause the closing of the dialog)</p>
     ),
     beforeCancel: (done, { options, index }) => {
       console.log(
@@ -433,10 +433,10 @@ function onBeforeCancelClick() {
 
 function onBeforeSureClick() {
   addDialog({
-    title: "点击底部确定按钮的回调",
+    title: "Click the bottom sure button callback",
     contentRenderer: () => (
       <p>
-        弹框内容-点击底部确定按钮的回调（会暂停弹框的关闭，经常用于新增、修改弹框内容后调用接口）
+        Dialog content - Click the bottom sure button callback (will pause the closing of the dialog, often used for calling the interface after adding or modifying the dialog content)
       </p>
     ),
     beforeSure: (done, { options, index }) => {
@@ -454,11 +454,11 @@ function onBeforeSureClick() {
 function onSureBtnLoading() {
   addDialog({
     sureBtnLoading: true,
-    title: "点击底部确定按钮可开启按钮动画",
-    contentRenderer: () => <p>弹框内容-点击底部确定按钮可开启按钮动画</p>,
+    title: "Click the bottom sure button to enable button animation",
+    contentRenderer: () => <p>Dialog content - Click the bottom sure button to enable button animation</p>,
     beforeSure: (done, { closeLoading }) => {
-      // closeLoading() // 关闭确定按钮动画，不关闭弹框
-      // done() // 关闭确定按钮动画并关闭弹框
+      // closeLoading() // Close the button animation, do not close the dialog
+      // done() // Close the button animation and close the dialog
       setTimeout(() => done(), 800);
     }
   });
@@ -470,7 +470,7 @@ function onSureBtnLoading() {
     <template #header>
       <div class="card-header">
         <span class="font-medium">
-          二次封装 Element Plus 的
+          Secondary encapsulation of Element Plus's
           <el-link
             href="https://element-plus.org/zh-CN/component/dialog.html"
             target="_blank"
@@ -478,12 +478,12 @@ function onSureBtnLoading() {
           >
             Dialog
           </el-link>
-          ，采用函数式调用弹框组件（更多操作实例请参考
+          , using functional dialog component calls (for more examples, please refer to 
           <span
             class="cursor-pointer text-primary"
             @click="router.push({ name: 'SystemDept' })"
           >
-            系统管理页面
+            System Management Page
           </span>
           ）
         </span>
@@ -492,63 +492,63 @@ function onSureBtnLoading() {
         href="https://github.com/pure-admin/vue-pure-admin/tree/main/src/views/components/dialog"
         target="_blank"
       >
-        代码位置 src/views/components/dialog
+        Code location: src/views/components/dialog
       </el-link>
     </template>
     <el-space wrap>
-      <el-button @click="onBaseClick"> 基础用法 </el-button>
-      <el-button @click="onDraggableClick"> 可拖拽 </el-button>
-      <el-button @click="onFullscreenClick"> 全屏 </el-button>
-      <el-button @click="onFullscreenIconClick"> 全屏按钮和全屏事件 </el-button>
-      <el-button @click="onModalClick"> 无背景遮罩层 </el-button>
-      <el-button @click="onStyleClick"> 自定义弹出位置 </el-button>
-      <el-button @click="onoOpenDelayClick"> 延时2秒打开弹框 </el-button>
-      <el-button @click="onCloseDelayClick"> 延时2秒关闭弹框 </el-button>
+      <el-button @click="onBaseClick"> Basic Usage </el-button>
+      <el-button @click="onDraggableClick"> Draggable </el-button>
+      <el-button @click="onFullscreenClick"> Fullscreen </el-button>
+      <el-button @click="onFullscreenIconClick"> Fullscreen Button & Events </el-button>
+      <el-button @click="onModalClick"> No Background Mask </el-button>
+      <el-button @click="onStyleClick"> Custom Position </el-button>
+      <el-button @click="onoOpenDelayClick"> Open with Delay (2s) </el-button>
+      <el-button @click="onCloseDelayClick"> Close with Delay (2s) </el-button>
       <el-button @click="onShowCloseClick">
-        不显示右上角关闭按钮图标
+        Hide Close Button
       </el-button>
-      <el-button @click="onBeforeCloseClick"> 禁止通过键盘ESC关闭 </el-button>
+      <el-button @click="onBeforeCloseClick"> Disable ESC Key </el-button>
       <el-button @click="onCloseOnClickModalClick">
-        禁止通过点击modal关闭
+        Disable Click Outside
       </el-button>
-      <el-button @click="onHideFooterClick"> 隐藏底部取消、确定按钮 </el-button>
-      <el-button @click="onHeaderRendererClick"> 自定义头部 </el-button>
-      <el-button @click="onFooterRendererClick"> 自定义底部 </el-button>
-      <el-button @click="onFooterButtonsClick"> 自定义底部按钮 </el-button>
-      <el-button @click="onOpenClick"> 打开后的回调 </el-button>
-      <el-button @click="onCloseCallBackClick"> 关闭后的回调 </el-button>
-      <el-button @click="onNestingClick"> 嵌套的弹框 </el-button>
-      <el-button @click="onUpdateClick"> 更改弹框自身属性值 </el-button>
-      <el-button @click="onPopconfirmClick">Popconfirm确认框</el-button>
+      <el-button @click="onHideFooterClick"> Hide Footer Buttons </el-button>
+      <el-button @click="onHeaderRendererClick"> Custom Header </el-button>
+      <el-button @click="onFooterRendererClick"> Custom Footer </el-button>
+      <el-button @click="onFooterButtonsClick"> Custom Footer Buttons </el-button>
+      <el-button @click="onOpenClick"> Open Callback </el-button>
+      <el-button @click="onCloseCallBackClick"> Close Callback </el-button>
+      <el-button @click="onNestingClick"> Nested Dialogs </el-button>
+      <el-button @click="onUpdateClick"> Update Properties </el-button>
+      <el-button @click="onPopconfirmClick"> Popconfirm Dialog </el-button>
     </el-space>
     <el-divider />
     <el-space wrap>
       <el-button @click="onFormOneClick">
-        结合Form表单（第一种方式）
+        With Form (Method 1)
       </el-button>
       <el-button @click="onFormTwoClick">
-        结合Form表单（第二种方式）
+        With Form (Method 2)
       </el-button>
       <el-button @click="onFormThreeClick">
-        结合Form表单（第三种方式）
+        With Form (Method 3)
       </el-button>
       <el-button @click="onFormFourClick">
-        结合Form表单（第四种方式）
+        With Form (Method 4)
       </el-button>
       <el-button @click="onFormPrimitiveFormClick">
-        子组件 prop 为 primitive 类型
+        Primitive Prop
       </el-button>
     </el-space>
     <el-divider />
     <el-space wrap>
       <el-button @click="onBeforeCancelClick">
-        点击底部取消按钮的回调（会暂停弹框的关闭）
+        Before Cancel Callback
       </el-button>
       <el-button @click="onBeforeSureClick">
-        点击底部确定按钮的回调（会暂停弹框的关闭，经常用于新增、修改弹框内容后调用接口）
+        Before Confirm Callback
       </el-button>
       <el-button @click="onSureBtnLoading">
-        点击底部确定按钮可开启按钮动画
+        Button Loading State
       </el-button>
     </el-space>
   </el-card>

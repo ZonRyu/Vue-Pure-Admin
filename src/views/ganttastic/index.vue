@@ -6,13 +6,13 @@ import { GGanttChart, GGanttRow } from "@infectoone/vue-ganttastic";
 const context = ref([
   [
     {
-      week: "星期一",
+      week: "Monday",
       beginDate: "06:00",
       endDate: "22:00",
       ganttBarConfig: {
         id: "0",
         hasHandles: true,
-        label: "需求收集和分析  负责人：小张",
+        label: "Requirement Collection and Analysis  - Owner: Zhang",
         style: {
           background: "#e96560"
         }
@@ -21,13 +21,13 @@ const context = ref([
   ],
   [
     {
-      week: "星期二",
+      week: "Tuesday",
       beginDate: "09:00",
       endDate: "18:00",
       ganttBarConfig: {
         id: "1",
         hasHandles: true,
-        label: "系统设计  负责人：小强",
+        label: "System Design  - Owner: Qiang",
         style: {
           background: "#5ccfa3"
         }
@@ -36,13 +36,13 @@ const context = ref([
   ],
   [
     {
-      week: "星期三",
+      week: "Wednesday",
       beginDate: "07:00",
       endDate: "20:00",
       ganttBarConfig: {
         id: "2",
         hasHandles: true,
-        label: "编码实现  负责人：老李",
+        label: "Coding Implementation  - Owner: Li",
         style: {
           background: "#77d6fa"
         }
@@ -51,13 +51,13 @@ const context = ref([
   ],
   [
     {
-      week: "星期四",
+      week: "Thursday",
       beginDate: "06:00",
       endDate: "21:00",
       ganttBarConfig: {
         id: "3",
         hasHandles: true,
-        label: "编码实现  负责人：小明",
+        label: "Coding Implementation  - Owner: Ming",
         style: {
           color: "#fff",
           background: "#1b2a47"
@@ -67,13 +67,13 @@ const context = ref([
   ],
   [
     {
-      week: "星期五",
+      week: "Friday",
       beginDate: "05:00",
       endDate: "19:00",
       ganttBarConfig: {
         id: "4",
         hasHandles: true,
-        label: "内部测试  负责人：小雪",
+        label: "Internal Testing  - Owner: Xue",
         style: {
           background: "#5ccfa3"
         }
@@ -82,13 +82,13 @@ const context = ref([
   ],
   [
     {
-      week: "星期六",
+      week: "Saturday",
       beginDate: "10:00",
       endDate: "22:00",
       ganttBarConfig: {
         id: "5",
         hasHandles: true,
-        label: "系统优化和文档整理  负责人：小欣",
+        label: "System Optimization & Documentation  - Owner: Xin",
         style: {
           background: "#f8bc45"
         }
@@ -97,14 +97,14 @@ const context = ref([
   ],
   [
     {
-      week: "星期天",
+      week: "Sunday",
       beginDate: "04:00",
       endDate: "23:59",
       ganttBarConfig: {
         id: "6",
         immobile: false,
         hasHandles: false,
-        label: "部署和上线  负责人：老王",
+        label: "Deployment & Launch  - Owner: Wang",
         style: {
           background: "#f3953d"
         }

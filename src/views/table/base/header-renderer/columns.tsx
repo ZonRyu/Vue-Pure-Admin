@@ -14,13 +14,13 @@ export function useColumns() {
   );
 
   const handleEdit = (index: number, row) => {
-    message(`您修改了第 ${index} 行，数据为：${JSON.stringify(row)}`, {
+    message(`You modified the ${index} row, data: ${JSON.stringify(row)}`, {
       type: "success"
     });
   };
 
   const handleDelete = (index: number, row) => {
-    message(`您删除了第 ${index} 行，数据为：${JSON.stringify(row)}`);
+    message(`You deleted the ${index} row, data: ${JSON.stringify(row)}`);
   };
 
   const columns: TableColumnList = [
@@ -30,11 +30,11 @@ export function useColumns() {
       headerSlot: "nameHeader"
     },
     {
-      label: "姓名",
+      label: "Name",
       prop: "name"
     },
     {
-      label: "地址",
+      label: "Address",
       prop: "address"
     },
     {

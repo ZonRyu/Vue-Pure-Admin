@@ -5,38 +5,38 @@ import { tableDataMore } from "./data";
 
 const columns: TableColumnList = [
   {
-    label: "日期",
+    label: "Date",
     prop: "date",
     width: "260",
     fixed: true
   },
   {
-    label: "姓名",
+    label: "Name",
     prop: "name",
     width: "260"
   },
   {
-    label: "地区",
+    label: "Address",
     prop: "state",
     width: "260"
   },
   {
-    label: "城市",
+    label: "City",
     prop: "city",
     width: "260"
   },
   {
-    label: "地址",
+    label: "Address",
     prop: "address",
     width: "260"
   },
   {
-    label: "邮编",
+    label: "Post-code",
     prop: "post-code",
     width: "260"
   },
   {
-    label: "操作",
+    label: "Operation",
     width: "120",
     fixed: "right",
     slot: "operation"
